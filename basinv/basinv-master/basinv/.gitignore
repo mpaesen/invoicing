@@ -1,0 +1,12 @@
+.settings/
+bin/
+test-output/
+target/
+.project
+.classpath
+*.jar
+/.DS_Store
+/documenten
+/lib
+/META-INF
+/MySQLBasicInvoicing
