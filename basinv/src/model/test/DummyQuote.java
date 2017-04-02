@@ -31,7 +31,7 @@ public class DummyQuote extends Dummy {
 		deliveryDay.setMaand(deliveryDay.getMaand()+3);	//delivery = today + 3 months
 		quote = new Quote(// new java.rmi.dgc.VMID().toString(),
 				//Integer.toHexString(DummyNumber.getNewNumber()), 
-				NumberController.readLastNumber("Qte", 2011).toString(), // idQuote | char(15)
+				NumberController.readLastNumber("Qte", toDay.getJaar()).toString(), // idQuote | char(15)
 				cusID, // qtecusid | char(15)
 				addressID, // qtedlvaddid | char(15)
 				toDay, // qtecrtdate | datetime

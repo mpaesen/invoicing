@@ -29,7 +29,7 @@ public class DummyInvoice extends Dummy {
 			invoice = new Invoice(// new java.rmi.dgc.VMID().toString(),
 					//Integer.toHexString(DummyNumber.getNewNumber()), // idInvoice |
 																		// char(15)
-					NumberController.readLastNumber("Inv", 2011).toString(),
+					NumberController.readLastNumber("Inv", new Date().getJaar()).toString(),
 					cusID, // invcusid | char(15)
 					addressID, // invaddid | char(15)
 					addressID, // invdlvaddid | char(15)

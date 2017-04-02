@@ -29,7 +29,7 @@ public class DummyAddress extends Dummy {
 				""+getRandom().nextInt(20),						// this.addBox = addBox;
 				zip[i],											// this.addZip = addZip;
 				city[i],										// this.addCity = addCity;
-				"België",
+				"BE",
 				type[getRandom().nextInt(type.length)],			// this.addType = addType;
 				true // this.active = active;
 		);
