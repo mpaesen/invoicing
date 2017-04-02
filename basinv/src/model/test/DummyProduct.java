@@ -11,9 +11,9 @@ import model.Product;
  */
 public class DummyProduct extends Dummy {
 	
-	private static String [] product = {"Dwarsbalk", "H-Balk", "I-Balk", "Hoekijzer", "Paal", "Moer", "Bout", "Mof", "Niet", "Nagel"};
-	private static String[] category = {"Balk", "Paal", "Fix"};
-	private static String[] type = {"Mat", "Uur"};
+	private static String[] product = { "Consultancy", "Business Analyse", "Project management", "Ontwikkeling", "Technische Analyse", "Training" };
+	private static String[] category = { "A", "B", "C", "D", "E", "F" };
+	private static String[] type = { "M", "W", "S" };
 	
 	/**
 	 * @return

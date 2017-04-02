@@ -665,11 +665,11 @@ public class InvoicingRoot extends javax.swing.JFrame {
 	private String[][] getProductColumns(int[] columnWidth) {
 		String[][] columns;
 		Product product;
-		String[] filter = getProductFilter(getJFormattedTextFieldProductPanelProductNaam()
+		final String[] filter = getProductFilter(getJFormattedTextFieldProductPanelProductNaam()
 				.getText());
-		Collection<Business> list = ProductController.getProducts(filter);
+		final Collection<Business> list = ProductController.getProducts(filter);
 		columns = new String[list.size()][];
-		Iterator<Business> it = list.iterator();
+		final Iterator<Business> it = list.iterator();
 		int i = 0;
 		while (it.hasNext()) {
 			product = (Product) it.next();

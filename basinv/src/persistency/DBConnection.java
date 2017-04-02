@@ -117,7 +117,7 @@ public abstract class DBConnection {
 						argsIO[i]);
 			}
 			success = procedure.execute();
-			success = procedure.getBoolean(args.length);
+			success = (args.length > 0 ? procedure.getBoolean(args.length) : true);
 		} catch (SQLException exp) {
 			exp.printStackTrace();
 		}

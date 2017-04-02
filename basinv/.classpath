@@ -3,12 +3,13 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/checkVAT.jar"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/itextpdf-5.3.4.jar"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/looks-2.1.4.jar"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/mysql-connector-java-5.1.16-bin.jar"/>
-	<classpathentry kind="lib" path="/run/user/1000/gvfs/sftp:host=mathys-macbook-pro.local/Library/Java/Extensions/TableLayout.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/checkVAT.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/itextpdf-5.3.4.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/jt400.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/looks-2.1.4.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/mysql-connector-java-5.1.16-bin.jar"/>
+	<classpathentry kind="lib" path="/home/java/development/LIB/TableLayout.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

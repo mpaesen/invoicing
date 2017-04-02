@@ -17,7 +17,7 @@ import model.Invoice;
 public class DummyInvoice extends Dummy {
 
 	private static String[] status = { "O", "P", "C" };
-	private static String[] type = { "M", "W" };
+	private static String[] type = { "I", "C" };
 
 	/**
 	 * @return
