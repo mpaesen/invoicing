@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import model.Address;
+import model.Amount;
 import model.Business;
 import model.BusinessTypeEnum;
 import model.Customer;
@@ -59,6 +60,41 @@ public class InvoiceController {
 			}
 		}
 		return reference;
+	}
+	
+	/**
+	 * Calculates gross amount for an invoice
+	 * @param idInvoice
+	 * @return
+	 */
+	public static Amount getInvoiceAmount(String idInvoice){
+		Amount invoiceAmount = null;
+		DBFacade facade = new DBFacade();
+		StringBuilder callableStatement = new StringBuilder();
+
+		int LENGTH = 1;
+		callableStatement.append("{call getInvoiceAmount(?)}");
+		Object[] args = new Object[LENGTH];
+		int[] argsType = new int[LENGTH];
+		ArgIO[] argsIO = new ArgIO[LENGTH];
+		for (int i = 0; i < args.length; i++) {
+			try {
+				args[i] = idInvoice;
+				argsType[i] = java.sql.Types.CHAR;
+				argsIO[i] = ArgIO.IN;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		Collection<Business> list = facade.getResult(BusinessTypeEnum.AMOUNT,
+				callableStatement.toString(), args, argsType, argsIO);
+		if (!list.isEmpty()) {
+			Iterator<Business> it = list.iterator();
+			if (it.hasNext()) {
+				invoiceAmount = (Amount) it.next();
+			}
+		}
+		return invoiceAmount;
 	}
 
 	/**
