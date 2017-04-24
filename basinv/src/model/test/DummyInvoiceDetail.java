@@ -11,7 +11,7 @@ import utilities.DatumException;
 
 
 public class DummyInvoiceDetail extends Dummy {
-	private static String[] uMeasure= {"m", "m²", "m³", "kg", "ton"};
+	private static String[] uMeasure= { "wk", "u", "stk", "md", "dg" };
 	private static String[] vat = {new String("0.0"), new String("6.0"), new String("12.0"), new String("21.0")};
 	private static int i;
 	/**

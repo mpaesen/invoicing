@@ -15,7 +15,7 @@ public class DummyAddress extends Dummy {
 	private static String[] city = {"Bree", "Meeuwen", "Brussel", "Leuven", "Antwerpen", "Genk", "Hasselt", "Gent"};
 	private static String[] zip = {"3960", "3670", "1000", "3000", "2000", "3600", "3500", "9000"};
 	
-	private static String[] type = {"I","D","O"};
+	private static String[] type = {"I","D"};
 
 
 	public static Address createAddress(String addRef) {
@@ -29,7 +29,7 @@ public class DummyAddress extends Dummy {
 				""+getRandom().nextInt(20),						// this.addBox = addBox;
 				zip[i],											// this.addZip = addZip;
 				city[i],										// this.addCity = addCity;
-				"BE",
+				"Bel",
 				type[getRandom().nextInt(type.length)],			// this.addType = addType;
 				true // this.active = active;
 		);

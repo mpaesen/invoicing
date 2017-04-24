@@ -5,6 +5,7 @@ public class CodeDetail implements Business{
 	private String codeDet;
 	private String codeDesc;
 	private boolean active;
+	
 	public CodeDetail(String idCode, String codeDet, String codeDesc,
 			boolean active) {
 		super();

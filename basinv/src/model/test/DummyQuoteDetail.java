@@ -11,7 +11,7 @@ import utilities.DatumException;
 
 
 public class DummyQuoteDetail extends Dummy {
-	private static String[] uMeasure= {"m", "m²", "m³", "kg", "ton"};
+	private static String[] uMeasure= { "wk", "u", "stk", "md", "dg" };
 	private static int i;
 	/**
 	 * @param prodID

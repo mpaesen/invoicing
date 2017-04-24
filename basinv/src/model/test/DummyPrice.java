@@ -10,7 +10,7 @@ import model.Price;
 
 
 public class DummyPrice extends Dummy {
-	private static String[] uMeasure= {"m", "m²", "m³", "kg", "ton"};
+	private static String[] uMeasure= { "wk", "u", "stk", "md", "dg" };
 	
 	/**
 	 * @param prodID
