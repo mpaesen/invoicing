@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 import model.Address;
+import model.Amount;
 import model.Business;
 import model.BusinessTypeEnum;
 import model.CodeDetail;
@@ -264,6 +265,15 @@ public class DBFacade {
 			}
 			break;
 		}// QuoteView
+		case 14: {// BigDecimal
+			try{
+				object = (Business) new Amount(result.getBigDecimal(1));
+			}
+			catch(NumberFormatException e){
+				e.printStackTrace();
+			}
+			break;
+		}
 		default: {
 			break;
 		}

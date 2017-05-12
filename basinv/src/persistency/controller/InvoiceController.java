@@ -23,6 +23,7 @@ import utilities.Date;
 import utilities.DatumException;
 import utilities.FixTypes;
 import utilities.NumberEnum;
+import utilities.ValidateInteger;
 
 /**
  * @author Mathy
@@ -378,7 +379,7 @@ public class InvoiceController {
 		callableStatement = new StringBuilder();
 		facade = new DBFacade();
 		int LENGTH = 4;
-		callableStatement.append("{call readAllInvoiceByCustomerName(?,?,?,?)}");
+		callableStatement.append("{call readAllInvoiceByCustomerName(?,?,?,?,?)}");
 		Object[] args = { Constants.EMPTY, Constants.EMPTY, Constants.EMPTY, true };
 		int[] argsType = new int[LENGTH];
 		ArgIO[] argsIO = new ArgIO[LENGTH];
@@ -414,6 +415,14 @@ public class InvoiceController {
 					break;
 				}
 				case 3: {
+					// invoice year
+					if ((!filter[i].equals(Constants.EMPTY))
+						&& (ValidateInteger.isInteger((filter[i])))){
+						argsType[i] = java.sql.Types.INTEGER;
+						argsIO[i] = ArgIO.IN;
+					}
+				}
+				case 4: {
 					// active boolean)
 					if (filter[i].equals("false")) {
 						args[i] = false;
@@ -422,6 +431,7 @@ public class InvoiceController {
 					argsIO[i] = ArgIO.IN;
 					break;
 				}
+
 				default:
 					throw new Exception(
 							"Error while creating SP readAllInvoiceByCustomer()");

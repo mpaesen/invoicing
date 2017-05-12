@@ -32,6 +32,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
@@ -70,6 +71,7 @@ import utilities.Date;
 import utilities.DateCellRenderer;
 import utilities.DateRenderer;
 import utilities.DatumException;
+import utilities.Figures;
 import utilities.FixTypes;
 
 import com.toedter.calendar.JDateChooser;
@@ -121,6 +123,8 @@ public class InvoicingRoot extends javax.swing.JFrame
 	private JFormattedTextField jFormattedTextFieldCustomerPanelCustomerName;
 	private JFormattedTextField jFormattedTextFieldProductPanelProductName;
 	private JFormattedTextField jFormattedTextFieldInvoicePanelCustomerName;
+	private JTextField jTextFieldYear;
+	private JLabel jYear;
 	private JFormattedTextField jFormattedTextFieldQuotesPanelCustomerName;
 
 	private JComboBox jComboBoxCustomerType;
@@ -1057,57 +1061,67 @@ public class InvoicingRoot extends javax.swing.JFrame
 		final GroupLayout invoicePanelLayout = new GroupLayout(invoicePanel);
 		invoicePanel.setLayout(invoicePanelLayout);
 		invoiceScrollPane = new JScrollPane();
-		invoicePanelLayout.setVerticalGroup(invoicePanelLayout
-				.createSequentialGroup()
-				.addGap(7)
-				.addGroup(
-						invoicePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(getJButtonInvoicePanelCustomerSearch(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJComboBoxInvoiceType(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJLabel6(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJComboBoxInvoiceStatus(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJFormattedTextFieldInvoicePanelCustomerName(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJLabel2(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE).addComponent(getJLabel4(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
-				.addGap(54)
-				.addComponent(invoiceScrollPane, GroupLayout.PREFERRED_SIZE, 540, GroupLayout.PREFERRED_SIZE)
-				.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED, 1, Short.MAX_VALUE)
-				.addGroup(
-						invoicePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(getJButtonInvoicePanelInvoiceNew(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJLabelTotalAmount(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-								.addComponent(getJLabelTotaal(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)).addContainerGap(30, 30));
-		invoicePanelLayout.setHorizontalGroup(invoicePanelLayout
-				.createSequentialGroup()
-				.addContainerGap()
-				.addGroup(
-						invoicePanelLayout
-								.createParallelGroup()
-								.addComponent(invoiceScrollPane, GroupLayout.Alignment.LEADING, 0, 1318, Short.MAX_VALUE)
-								.addGroup(
-										GroupLayout.Alignment.LEADING,
-										invoicePanelLayout
-												.createSequentialGroup()
-												.addGroup(
-														invoicePanelLayout
-																.createParallelGroup()
-																.addGroup(
-																		GroupLayout.Alignment.LEADING,
-																		invoicePanelLayout.createSequentialGroup().addPreferredGap(getJLabel2(), getJButtonInvoicePanelInvoiceNew(), LayoutStyle.ComponentPlacement.INDENT)
-																				.addComponent(getJButtonInvoicePanelInvoiceNew(), GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE))
-																.addComponent(getJLabel2(), GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE))
-												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-												.addGroup(
-														invoicePanelLayout.createParallelGroup()
-																.addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup().addComponent(getJFormattedTextFieldInvoicePanelCustomerName(), GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE).addGap(18))
-																.addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup().addGap(400).addComponent(getJLabelTotaal(), GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
-												.addGroup(
-														invoicePanelLayout
-																.createParallelGroup()
-																.addGroup(
-																		GroupLayout.Alignment.LEADING,
-																		invoicePanelLayout.createSequentialGroup().addComponent(getJLabel6(), GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE).addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-																				.addComponent(getJComboBoxInvoiceType(), GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE))
-																.addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup().addGap(18).addComponent(jLabelTotalAmount, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE).addGap(83)))
-												.addComponent(getJLabel4(), GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE).addPreferredGap(LayoutStyle.ComponentPlacement.RELATED).addComponent(getJComboBoxInvoiceStatus(), GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
-												.addGap(56).addComponent(getJButtonInvoicePanelCustomerSearch(), GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE).addGap(0, 82, Short.MAX_VALUE))).addContainerGap(18, 18));
+		invoicePanelLayout.setVerticalGroup(invoicePanelLayout.createSequentialGroup()
+			.addGap(7)
+			.addGroup(invoicePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+			    .addComponent(getJButtonInvoicePanelCustomerSearch(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJComboBoxInvoiceType(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJLabel6(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJComboBoxInvoiceStatus(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJFormattedTextFieldInvoicePanelCustomerName(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJLabel2(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJLabel4(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
+			.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+			.addGroup(invoicePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+			    .addComponent(getJTextFieldYear(), GroupLayout.Alignment.BASELINE, 0, 21, Short.MAX_VALUE)
+			    .addComponent(getJYear(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE))
+			.addGap(17)
+			.addComponent(invoiceScrollPane, GroupLayout.PREFERRED_SIZE, 540, GroupLayout.PREFERRED_SIZE)
+			.addGap(17)
+			.addGroup(invoicePanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+			    .addComponent(getJButtonInvoicePanelInvoiceNew(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJLabelTotalAmount(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+			    .addComponent(getJLabelTotaal(), GroupLayout.Alignment.BASELINE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE))
+			.addContainerGap(30, 30));
+		invoicePanelLayout.setHorizontalGroup(invoicePanelLayout.createSequentialGroup()
+			.addContainerGap()
+			.addGroup(invoicePanelLayout.createParallelGroup()
+			    .addComponent(invoiceScrollPane, GroupLayout.Alignment.LEADING, 0, 1318, Short.MAX_VALUE)
+			    .addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup()
+			        .addGroup(invoicePanelLayout.createParallelGroup()
+			            .addGroup(invoicePanelLayout.createSequentialGroup()
+			                .addPreferredGap(getJLabel2(), getJButtonInvoicePanelInvoiceNew(), LayoutStyle.ComponentPlacement.INDENT)
+			                .addGroup(invoicePanelLayout.createParallelGroup()
+			                    .addComponent(getJButtonInvoicePanelInvoiceNew(), GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+			                    .addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup()
+			                        .addGap(43)
+			                        .addComponent(getJYear(), GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))))
+			            .addComponent(getJLabel2(), GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE, GroupLayout.PREFERRED_SIZE))
+			        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+			        .addGroup(invoicePanelLayout.createParallelGroup()
+			            .addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup()
+			                .addComponent(getJFormattedTextFieldInvoicePanelCustomerName(), GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
+			                .addGap(18))
+			            .addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup()
+			                .addComponent(getJTextFieldYear(), GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+			                .addGap(330)
+			                .addComponent(getJLabelTotaal(), GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
+			        .addGroup(invoicePanelLayout.createParallelGroup()
+			            .addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup()
+			                .addComponent(getJLabel6(), GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+			                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+			                .addComponent(getJComboBoxInvoiceType(), GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE))
+			            .addGroup(GroupLayout.Alignment.LEADING, invoicePanelLayout.createSequentialGroup()
+			                .addGap(18)
+			                .addComponent(jLabelTotalAmount, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+			                .addGap(83)))
+			        .addComponent(getJLabel4(), GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
+			        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+			        .addComponent(getJComboBoxInvoiceStatus(), GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE)
+			        .addGap(56)
+			        .addComponent(getJButtonInvoicePanelCustomerSearch(), GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+			        .addGap(0, 82, Short.MAX_VALUE)))
+			.addContainerGap(18, 18));
 		{
 			jTableInvoicesModel = new DefaultTableModel(getEmptyInvoiceColumns(), getInvoiceColumnTitles());
 			jTableInvoices = new JTable();
@@ -1198,7 +1212,8 @@ public class InvoicingRoot extends javax.swing.JFrame
 		final String status = invoiceStats.get(desc);
 		desc = getJComboBoxInvoiceType().getSelectedItem();
 		final String type = invoiceTypes.get(desc);
-		final String[] filter = { customerName, status, type, Constants.TRUE };
+		final String year = getJTextFieldYear().toString();
+		final String[] filter = { customerName, status, type , year, Constants.TRUE};
 		return filter;
 	}
 
@@ -2189,5 +2204,19 @@ public class InvoicingRoot extends javax.swing.JFrame
 			jLabelTotaal.setText("Totaal:");
 		}
 		return jLabelTotaal;
+	}
+	
+	public JLabel getJYear() {
+		if(jYear == null) {
+			jYear = new JLabel("Jaar:");
+		}
+		return jYear;
+	}
+	
+	public JTextField getJTextFieldYear() {
+		if(jTextFieldYear == null) {
+			jTextFieldYear = new JTextField(Figures.ZERO_STRING);
+		}
+		return jTextFieldYear;
 	}
 }
