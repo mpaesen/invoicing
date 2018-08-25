@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="checkVAT">
+    <CLASSES>
+      <root url="jar:///Library/Java/Extensions/checkVAT.jar!/" />
+      <root url="jar:///Library/Java/Extensions/itextpdf-5.3.4.jar!/" />
+      <root url="jar:///Library/Java/Extensions/jcalendar-1.4.jar!/" />
+      <root url="jar:///Library/Java/Extensions/looks-2.1.4.jar!/" />
+      <root url="jar:///Library/Java/Extensions/TableLayout.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
