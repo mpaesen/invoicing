@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="invoicing">
+    <output-path>$PROJECT_DIR$/out/artifacts/invoicing</output-path>
+    <root id="archive" name="invoicing.jar">
+      <element id="module-output" name="basinv" />
+    </root>
+  </artifact>
+</component>
