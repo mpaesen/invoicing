@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="basinv:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/basinv_jar</output-path>
+    <root id="archive" name="basinv.jar">
+      <element id="module-output" name="basinv" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/log4j-1.2.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/checkVAT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/itextpdf-5.3.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/jcalendar-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/looks-2.1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/TableLayout.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/Library/Java/Extensions/mysql-connector-java-5.1.16-bin.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.1.0/junit-jupiter-api-5.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="checkVAT" />
+      <element id="library" level="project" name="log4j-1.2.17" />
+      <element id="library" level="project" name="mysql-connector-java-5.1.16-bin" />
+    </root>
+  </artifact>
+</component>
