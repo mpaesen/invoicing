@@ -1,12 +1,11 @@
 package persistency.test;
 
+import junit.framework.TestCase;
 import model.*;
 import model.test.*;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import persistency.controller.*;
 
-public class TestDummyInvoiceDetail {
+public class TestDummyInvoiceDetail extends TestCase {
 
     private Invoice invoice;
     private Customer customer;
@@ -15,9 +14,9 @@ public class TestDummyInvoiceDetail {
     private Product product;
     private Price price;
 
-    @BeforeAll
-    protected void setUp() {
-        // super.setUp();
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
 
         customer = (Customer) DummyFactory
                 .createBusiness(BusinessTypeEnum.CUSTOMER);
@@ -36,10 +35,7 @@ public class TestDummyInvoiceDetail {
                 product.getIdProd());
     }
 
-    @Test
     public void testCreateInvoiceDetail() {
-        if (!InvoiceDetailController.createInvoiceDetail(detail)) {
-            throw new AssertionError();
-        }
+        assertTrue(InvoiceDetailController.createInvoiceDetail(detail));
     }
 }

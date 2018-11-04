@@ -1,38 +1,37 @@
 package persistency.test;
 
+import junit.framework.TestCase;
 import model.Address;
 import model.BusinessTypeEnum;
 import model.Customer;
 import model.test.DummyAddress;
 import model.test.DummyFactory;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import persistency.controller.AddressController;
 import persistency.controller.CustomerController;
 
 /**
  * @author Mathy
+ *
  */
-public class TestDummyAddress {
+public class TestDummyAddress extends TestCase {
 
-    private Customer customer;
-    private Address address;
+	private Customer customer;
+	private Address address;
 
-    @BeforeAll
-    protected void setUp() {
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		customer = (Customer) DummyFactory
+				.createBusiness(BusinessTypeEnum.CUSTOMER);
+		CustomerController.createCustomer(customer);
+		address = DummyAddress.createAddress(customer.getIdCus());
 
-        customer = (Customer) DummyFactory
-                .createBusiness(BusinessTypeEnum.CUSTOMER);
-        CustomerController.createCustomer(customer);
-        address = DummyAddress.createAddress(customer.getIdCus());
+	}
 
-    }
-
-    /**
-     * Create 1 customer address via SP createAddress()
-     */
-    @Test
-    public void testCreateAddress() {
-        if ((!AddressController.createAddress(address))) throw new AssertionError();
-    }
+	/**
+	 * Create 1 customer address via SP createAddress()
+	 */
+	public void testCreateAddress() {
+		assertTrue(AddressController.createAddress(address));
+	}
 }

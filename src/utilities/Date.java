@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 
 /**
  * Deze class representeert een datum object en voorziet elementaire testen
- *
+ * 
  * @author Mathy Paesen
  * @date 24 september 2009
  */
@@ -99,7 +99,6 @@ public class Date implements Comparable<Date> {
     /**
      * Geeft steeds de laatste dag van de maand
      *
-     * @param Date
      * @return Date
      * @throws DatumException
      */
@@ -115,7 +114,6 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * @param Date []
      * @return Date[]
      */
     public static Date[] sorteerDatums(Date[] datums) {

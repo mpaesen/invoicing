@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package view;
 
@@ -28,9 +28,9 @@ import java.util.TreeMap;
  * PURCHASED FOR THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED LEGALLY FOR
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
-
 /**
  * @author Mathy
+ * 
  */
 public class JDialogContact extends JDialog {
 

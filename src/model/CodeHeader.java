@@ -9,8 +9,8 @@ public class CodeHeader implements Business {
     public CodeHeader(String idCode, String codeDesc, Integer codeLen,
                       boolean active) {
         super();
-        this.idCode = idCode;
-        this.codeDesc = codeDesc;
+        this.idCode = idCode.trim();
+        this.codeDesc = codeDesc.trim();
         this.codeLen = codeLen;
         this.active = active;
     }

@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -15,6 +15,7 @@ import java.util.TreeMap;
 
 /**
  * @author Mathy
+ * 
  */
 public class CodeController {
     private static DBFacade facade;
@@ -167,7 +168,6 @@ public class CodeController {
     /**
      * Create a specific codeDetail
      *
-     * @param codeDetail
      * @return
      */
     public static boolean createCode(CodeDetail detail) {

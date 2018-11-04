@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 /**
  * @author Mathy
+ * 
  */
 public class ContactController {
     private static DBFacade facade;
@@ -175,7 +176,6 @@ public class ContactController {
     /**
      * Remove a specific contact
      *
-     * @param contact
      * @return
      */
     public static boolean removeContact(String id) {

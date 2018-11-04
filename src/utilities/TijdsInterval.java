@@ -38,6 +38,7 @@ public class TijdsInterval implements Comparable<TijdsInterval> {
     /**
      * @return Voor= -2, Achter = +2, Overlapt = -1, Gelijk = 0
      */
+    @Override
     public int compareTo(TijdsInterval tot) {
         // Voor = -2
         // Achter = +2
@@ -64,7 +65,6 @@ public class TijdsInterval implements Comparable<TijdsInterval> {
     }
 
     /**
-     * @param Tijdsinterval
      * @return boolean
      */
     public boolean equals(TijdsInterval interval) {

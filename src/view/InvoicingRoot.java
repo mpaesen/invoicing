@@ -2,8 +2,10 @@ package view;
 
 import com.toedter.calendar.JDateChooser;
 import model.*;
+import model.Number;
 import persistency.controller.*;
 import utilities.*;
+import utilities.FixTypes;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -839,7 +841,6 @@ public class InvoicingRoot extends javax.swing.JFrame {
     }
 
     /**
-
      */
     private void setAlignmentProduct(final JTable jTable) {
         final CellRenderer renderer = new CellRenderer(jTable);
@@ -1135,7 +1136,6 @@ public class InvoicingRoot extends javax.swing.JFrame {
     }
 
     /**
-
      */
     private void setAlignmentQuote(final JTable jTable) {
         final CellRenderer renderer = new CellRenderer(jTable);
@@ -1304,7 +1304,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
     }
 
     private String invoiceExpired(final Invoice invoice) {
-        if (invoice.getInvStatus().equals(model.FixTypes.INVOICE_STATUS_CONFIRMED)) {
+        if (invoice.getInvStatus().equals(FixTypes.INVOICE_STATUS_CONFIRMED)) {
             return Constants.PAYED;
         }
 
@@ -1361,7 +1361,6 @@ public class InvoicingRoot extends javax.swing.JFrame {
     }
 
     /**
-
      */
     private void setAlignmentInvoicing(final JTable jTable) {
         final CellRenderer renderer = new CellRenderer(jTable);
@@ -1488,7 +1487,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
                             final int year = Integer
                                     .parseInt((String) getJTableNumberDetailModel()
                                             .getValueAt(row, 1));// year
-                            final model.Number current = NumberController
+                            final Number current = NumberController
                                     .readOneNumber(category, year);
                             new JDialogNumber(frame, current,
                                     CRUDOperationEnum.UPDATE);
@@ -1709,7 +1708,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
                                     .getValueAt(row, 0);// invoices
                             final Invoice temp = InvoiceController
                                     .getInvoice(id);
-                            if (temp.getInvType().equals(model.FixTypes.CREDIT_NOTE)) {
+                            if (temp.getInvType().equals(FixTypes.CREDIT_NOTE)) {
 
                                 JOptionPane.showMessageDialog(frame, id
                                         + Constants.CREDIT_NOTE_NOT_ALLOWED);
@@ -2198,13 +2197,13 @@ public class InvoicingRoot extends javax.swing.JFrame {
         final int[] columnWidth = new int[getInvoiceColumnTitles().length];
 
         String[][] columns;
-        model.Number number;
+        Number number;
         final Collection<Business> list = NumberController.getAllNumbers();
         columns = new String[list.size()][];
         final Iterator<Business> it = list.iterator();
         int i = 0;
         while (it.hasNext()) {
-            number = (model.Number) it.next();
+            number = (Number) it.next();
             columns[i] = new String[]{
                     CodeController.getOneCodeDetail(CodeEnum.NUMBER.getType(),
                             number.getNbrCategory().trim()).getCodeDesc(),

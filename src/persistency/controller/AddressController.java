@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -15,6 +15,7 @@ import java.util.TreeMap;
 
 /**
  * @author Mathy
+ * 
  */
 public class AddressController {
     private static DBFacade facade;
@@ -285,7 +286,6 @@ public class AddressController {
     /**
      * Remove a specific contact
      *
-     * @param contact
      * @return
      */
     public static boolean removeAddress(String id) {

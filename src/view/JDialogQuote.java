@@ -8,6 +8,8 @@ import persistency.RDBConnection;
 import persistency.controller.*;
 import utilities.*;
 import utilities.Date;
+import utilities.Figures;
+import utilities.FixTypes;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -581,15 +583,15 @@ public class JDialogQuote extends JDialog {
                             customer.getCusType()).getCodeDesc());
             jTextFieldCustomer.setText(customer.getCusName());
             jTextFieldCompanyRegistrationNumber.setText(customer.getCusVat());
-            List<Address> list = getAddressesByCustomer(model.FixTypes.INVOICE_ADRESS_TYPE);
+            List<Address> list = getAddressesByCustomer(FixTypes.INVOICE_ADRESS_TYPE);
             if (!list.isEmpty()) {
                 address = list.get(0);
                 jTextFieldInvoiceAddress.setText(address.toString());
                 if ((dlvAddresses == null) || dlvAddresses.isEmpty()) {
-                    getExistingAddresses(model.FixTypes.DELIVERY_ADRESS_TYPE);
+                    getExistingAddresses(FixTypes.DELIVERY_ADRESS_TYPE);
                 }
                 if ((dlvAddresses == null) || dlvAddresses.isEmpty()) {
-                    getExistingAddresses(model.FixTypes.INVOICE_ADRESS_TYPE);
+                    getExistingAddresses(FixTypes.INVOICE_ADRESS_TYPE);
                 }
             }
             jPanelHeaderNorth.add(getJComboBoxAddressSelection(), "1, 3, 3, 3");
@@ -612,7 +614,7 @@ public class JDialogQuote extends JDialog {
     private Object[][] getQuoteDetailColumns(int[] columnWidth) {
         Object[][] columns = null;
         if (freeFormat) {
-            columns = new Object[utilities.Figures.MAX_QTE_DETAIL_LINES][utilities.Figures.MAX_QTE_DETAIL_COLUMNS];
+            columns = new Object[Figures.MAX_QTE_DETAIL_LINES][Figures.MAX_QTE_DETAIL_COLUMNS];
         }
         int i = 0;
         int last = 0;
@@ -637,7 +639,8 @@ public class JDialogQuote extends JDialog {
                         new Integer(detail.getQteDetLine()),
                         (detail.getQteProdid() != null ? ProductController
                                 .getProduct(detail.getQteProdid())
-                                .getProdDesc() : detail.getQteComments()),
+                                .getProdDesc() :
+                                detail.getQteComments()),
                         new BigDecimal(detail.getQteQty().doubleValue())
                                 .setScale(1, BigDecimal.ROUND_HALF_UP),
                         new BigDecimal(detail.getQtePrice().doubleValue())
@@ -763,10 +766,10 @@ public class JDialogQuote extends JDialog {
     @SuppressWarnings({"unchecked", "rawtypes"})
     private JComboBox getJComboBoxAddressSelection() {
         if (jComboBoxAddressSelection == null) {
-            getExistingAddresses(model.FixTypes.DELIVERY_ADRESS_TYPE);
+            getExistingAddresses(FixTypes.DELIVERY_ADRESS_TYPE);
         }
         if (jComboBoxAddressSelectionModel.getSize() == 0) {
-            getExistingAddresses(model.FixTypes.INVOICE_ADRESS_TYPE);
+            getExistingAddresses(FixTypes.INVOICE_ADRESS_TYPE);
         }
 
         return jComboBoxAddressSelection;
@@ -891,7 +894,7 @@ public class JDialogQuote extends JDialog {
         }
         // All modifications should be shown real-time
         if (freeFormat) {
-            for (int row = 0; row < utilities.Figures.MAX_QTE_DETAIL_LINES; row++) {
+            for (int row = 0; row < Figures.MAX_QTE_DETAIL_LINES; row++) {
                 if (!lineIsEmpty(row)) {
                     saveDetail(row);
                 } else {
@@ -900,7 +903,7 @@ public class JDialogQuote extends JDialog {
                                     (Integer) jTableQuoteDetails.getModel()
                                             .getValueAt(row, 0));
                     if ((detail != null)
-                            && (detail.getQtePrice().doubleValue() != utilities.Figures.ZERO)) {
+                            && (detail.getQtePrice().doubleValue() != Figures.ZERO)) {
                         QuoteDetailController.removeQuoteDetail(detail);
                     }
                 }
@@ -951,6 +954,7 @@ public class JDialogQuote extends JDialog {
     }
 
     /**
+     * @param deliveryDate
      * @return
      */
     private Quote updateExistingQuote(String status) {
@@ -974,6 +978,7 @@ public class JDialogQuote extends JDialog {
     }
 
     /**
+     * @param deliveryDate
      * @return
      */
     private Quote createNewQuote() {
@@ -1007,9 +1012,9 @@ public class JDialogQuote extends JDialog {
         Date deliveryDate = null;
         try {
             deliveryDate = new Date();
-            deliveryDate.setDatum(reqDlvDate.getCalendar().get(java.util.Calendar.DATE),
-                    reqDlvDate.getCalendar().get(java.util.Calendar.MONTH), reqDlvDate
-                            .getCalendar().get(java.util.Calendar.YEAR));
+            deliveryDate.setDatum(reqDlvDate.getCalendar().get(Calendar.DATE),
+                    reqDlvDate.getCalendar().get(Calendar.MONTH), reqDlvDate
+                            .getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
             e.printStackTrace();
         }
@@ -1041,8 +1046,8 @@ public class JDialogQuote extends JDialog {
      * @return
      */
     private boolean validateQuoteDetail(StringBuilder errorMessages) {
-        for (int row = 0; row < utilities.Figures.MAX_QTE_DETAIL_LINES; row++) {
-            for (int col = 1; col < utilities.Figures.MAX_QTE_DETAIL_COLUMNS; col++) {
+        for (int row = 0; row < Figures.MAX_QTE_DETAIL_LINES; row++) {
+            for (int col = 1; col < Figures.MAX_QTE_DETAIL_COLUMNS; col++) {
                 if (!lineIsEmpty(row)) {
                     if (!validCellUpdated(row, col)) {
                         errorMessages.append(Constants.INVALID_DETAIL_LINE);
@@ -1261,7 +1266,7 @@ public class JDialogQuote extends JDialog {
                 Constants.UNIT, new BigDecimal(10000000)};
         TableCellRenderer headerRenderer = table.getTableHeader()
                 .getDefaultRenderer();
-        for (int i = 0; i < utilities.Figures.MAX_QTE_DETAIL_COLUMNS; i++) {
+        for (int i = 0; i < Figures.MAX_QTE_DETAIL_COLUMNS; i++) {
             column = table.getColumnModel().getColumn(i);
             comp = headerRenderer.getTableCellRendererComponent(null,
                     column.getHeaderValue(), false, false, 0, 0);
@@ -1277,7 +1282,7 @@ public class JDialogQuote extends JDialog {
 
     public boolean lineIsEmpty(int row) {
         Object object = null;
-        for (int col = 1; col < utilities.Figures.MAX_QTE_DETAIL_COLUMNS - 2; col++) {
+        for (int col = 1; col < Figures.MAX_QTE_DETAIL_COLUMNS - 2; col++) {
             object = jTableQuoteDetails.getModel().getValueAt(row, col);
             switch (col) {
                 case 1:
@@ -1386,7 +1391,7 @@ public class JDialogQuote extends JDialog {
                     .getValueAt(row, 3));
 
             double total = qty * price;
-            ((GenericTableModel) jTableQuoteDetails.getModel()).getData()[row][utilities.Figures.MAX_QTE_DETAIL_COLUMNS - 1] = new BigDecimal(
+            ((GenericTableModel) jTableQuoteDetails.getModel()).getData()[row][Figures.MAX_QTE_DETAIL_COLUMNS - 1] = new BigDecimal(
                     total).setScale(2, BigDecimal.ROUND_HALF_UP);
         }
 

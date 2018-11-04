@@ -18,14 +18,14 @@ public class InvoiceDetail implements Business {
                          BigDecimal invPrice, String invVat, String invComments,
                          boolean active) {
         super();
-        this.idInvoice = idInvoice;
+        this.idInvoice = idInvoice.trim();
         this.invDetLine = invDetLine;
-        this.invProdid = invProdid;
+        this.invProdid = invProdid.trim();
         this.invQty = invQty;
-        this.invMeasure = invMeasure;
+        this.invMeasure = invMeasure.trim();
         this.invPrice = invPrice;
-        this.invVat = invVat;
-        this.invComments = invComments;
+        this.invVat = invVat.trim();
+        this.invComments = invComments.trim();
         this.active = active;
     }
 

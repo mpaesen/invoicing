@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.*;
 
-
 /**
  * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
  * Builder, which is free for non-commercial use. If Jigloo is being used

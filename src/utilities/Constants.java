@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package utilities;
 
@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 /**
  * @author bematpae
+ *
  */
 public interface Constants {
     Logger logger = Logger.getLogger(Constants.class);
@@ -88,7 +89,7 @@ public interface Constants {
     String EURO = "\u20AC";
     // public String DELIVERY_CONDITIONS =
     // "De door ons vastgestelde termijnen voor levering en uitvoering van de werken zijn benaderend en geenszins bindend. Bij een gebeurlijk vertraag kan onze onderneming nooit aansprakelijk gesteld worden voor enige schade. Er zal gefaktureerd worden naargelang het verloop van levering en de vordering van de werken. Klachten dienen binnen de 8 dagen te worden ingediend. Onze fakturen zijn betaalbaar op onze zetel te bree. Bij een wanbetaling op de vervaldag is er, zonder ingebrekestelling, een verwijlrente verschuldigd van 1,5% per maand alsmede een forfetaire schadevergoeding van 10%. Op straffe van verval dienen de klachten met een aangetekend schrijven ingediend te worden binnen de acht dagen na ontvangst factuur. Bij regelmatige en gerechtvaardigde klacht is onze onderneming enkel gehouden tot de vervanging van de gebrekkige goederen, op voorwaarde dat alle openstaande fakturen, ook deze die betrekking hebben op andere overeenkomsten, werden voldaan. Alle aanspraken van onze medecontractant zijn uitgesloten. Onze medecontractant is tot betaling gehouden niettegenstaand welke eis en welke aanspraken door deze ook worden gesteld. Elke verrekening is uitgesloten. Onze ondeneming is gerechtigd elke prestatie op te schorten zolang alle openstaande fakturen, ook deze die op andere overeenkomsten betrekking hebben, niet werden voldaan. Onze fakturen zijn betaalbaar op overeengekomen termijnen, vermeld in de bestelling. Indien geen specifieke termijn is vermeld zijn onze fakturen contant betaalbaar. Enkel de rechtbank van Tongeren zijn bevoegd.";
-    String DELIVERY_CONDITIONS = "Facturen van mButeo dienen betaald te worden uiterlijk op de vermelde vervaldag. Bij gebrek aan onmiddellijke betaling zullen na de eerste aanmaning verwijlintresten a rato van de wettelijke rentevoeten verschuldigd zijn. In geval van een eerste aanmaning door mButeo is een bijkomende administratiekost verschuldigd van 5 euro. Vervolgens zal bij ontbreken van betaling het dossier onverwijld worden overgemaakt voor verdere invordering. Als een aangetekende ingebrekestelling door de gerechtsdeurwaarder of een gerechtelijke procedure noodzakelijk wordt om betaling te bekomen, zal er bijkomend een forfaitaire schadevergoeding van 10 procent van het factuurbedrag met een minimum van 40 euro aangerekend worden. Bij een gerechtelijke procedure zijn enkel de rechtbanken van Leuven bevoegd, in toepassing van artikel 624, 2� van het Gerechtelijk Wetboek.";
+    String DELIVERY_CONDITIONS = "Facturen van iButeo dienen betaald te worden uiterlijk op de vermelde vervaldag. Bij gebrek aan onmiddellijke betaling zullen na de eerste aanmaning verwijlintresten a rato van de wettelijke rentevoeten verschuldigd zijn. In geval van een eerste aanmaning door iButeo is een bijkomende administratiekost verschuldigd van 5 euro. Vervolgens zal bij ontbreken van betaling het dossier onverwijld worden overgemaakt voor verdere invordering. Als een aangetekende ingebrekestelling door de gerechtsdeurwaarder of een gerechtelijke procedure noodzakelijk wordt om betaling te bekomen, zal er bijkomend een forfaitaire schadevergoeding van 10 procent van het factuurbedrag met een minimum van 40 euro aangerekend worden. Bij een gerechtelijke procedure zijn enkel de rechtbanken van Leuven bevoegd, in toepassing van artikel 624, 2� van het Gerechtelijk Wetboek.";
     String HEAD = "H";
     String CN_BTW_VERMINDERING = "BTW terug te storten in de mate waarin hij oorspronkelijk in mindering werd gebracht.";
     // public String CO_CONTRACTOR =

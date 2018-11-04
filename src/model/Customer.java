@@ -23,22 +23,22 @@ public class Customer implements Business {
     public Customer(final String idCus, final String cusName, final String cusVat, final String cusPhone, final String cusMobile, final String cusFax, final String cusEMail, final String cusWebsite, final String cusType, final String cusClass, final String cusLang, final String cusCur,
                     final String cusPay, final String cusActivity, final String cusAccount, final String cusInfo, final boolean active) {
         super();
-        this.idCus = idCus;
-        this.cusName = cusName;
-        this.cusVat = cusVat;
-        this.cusPhone = cusPhone;
-        this.cusMobile = cusMobile;
-        this.cusFax = cusFax;
-        this.cusEMail = cusEMail;
-        this.cusWebsite = cusWebsite;
-        this.cusType = cusType;
-        this.cusClass = cusClass;
-        this.cusLang = cusLang;
+        this.idCus = idCus.trim();
+        this.cusName = cusName.trim();
+        this.cusVat = cusVat.trim();
+        this.cusPhone = cusPhone.trim();
+        this.cusMobile = cusMobile.trim();
+        this.cusFax = cusFax.trim();
+        this.cusEMail = cusEMail.trim();
+        this.cusWebsite = cusWebsite.trim();
+        this.cusType = cusType.trim();
+        this.cusClass = cusClass.trim();
+        this.cusLang = cusLang.trim();
         this.cusCur = cusCur;
-        this.cusPay = cusPay;
-        this.cusActivity = cusActivity;
-        this.cusAccount = cusAccount;
-        this.cusInfo = cusInfo;
+        this.cusPay = cusPay.trim();
+        this.cusActivity = cusActivity.trim();
+        this.cusAccount = cusAccount.trim();
+        this.cusInfo = cusInfo.trim();
         this.active = active;
     }
 

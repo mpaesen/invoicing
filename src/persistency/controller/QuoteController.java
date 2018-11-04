@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 /**
  * @author Mathy
+ * 
  */
 public class QuoteController {
     public static final String QUOTE_TYPE_OFFER = "O";
@@ -146,7 +147,7 @@ public class QuoteController {
                 break;
             }
             case 11: {
-                // in type varchar(256),
+                // in comment varchar(256),
                 args[i] = quote.getQteHeaderComments();
                 argsType[i] = java.sql.Types.VARCHAR;
                 argsIO[i] = ArgIO.IN;

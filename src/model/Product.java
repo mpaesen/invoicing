@@ -1,10 +1,11 @@
 /**
- *
+ * 
  */
 package model;
 
 /**
  * @author bematpae
+ * 
  */
 public class Product implements Business {
     private String idProd;
@@ -17,11 +18,11 @@ public class Product implements Business {
     public Product(String idProd, String prodCode, String prodDesc,
                    String prodCat, String prodType, boolean active) {
         super();
-        this.idProd = idProd;
-        this.prodCode = prodCode;
-        this.prodDesc = prodDesc;
-        this.prodCat = prodCat;
-        this.prodType = prodType;
+        this.idProd = idProd.trim();
+        this.prodCode = prodCode.trim();
+        this.prodDesc = prodDesc.trim();
+        this.prodCat = prodCat.trim();
+        this.prodType = prodType.trim();
         this.active = active;
     }
 

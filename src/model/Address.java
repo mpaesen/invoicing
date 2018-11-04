@@ -20,15 +20,15 @@ public class Address implements Business {
                    String addNumber, String addBox, String addZip, String addCity,
                    String addCountry, String addType, boolean active) {
         super();
-        this.idAddress = idAddress;
-        this.addRef = addRef;
-        this.addStreet = addStreet;
-        this.addNumber = addNumber;
-        this.addBox = addBox;
-        this.addZip = addZip;
-        this.addCity = addCity;
-        this.addType = addType;
-        this.addCountry = addCountry;
+        this.idAddress = idAddress.trim();
+        this.addRef = addRef.trim();
+        this.addStreet = addStreet.trim();
+        this.addNumber = addNumber.trim();
+        this.addBox = addBox.trim();
+        this.addZip = addZip.trim();
+        this.addCity = addCity.trim();
+        this.addType = addType.trim();
+        this.addCountry = addCountry.trim();
         this.active = active;
     }
 
@@ -47,7 +47,7 @@ public class Address implements Business {
     }
 
     public String getIdAddress() {
-        return idAddress;
+        return idAddress.trim();
     }
 
     public void setIdAddress(String idAddress) {
@@ -55,7 +55,7 @@ public class Address implements Business {
     }
 
     public String getAddRef() {
-        return addRef;
+        return addRef.trim();
     }
 
     public void setAddRef(String addRef) {
@@ -63,7 +63,7 @@ public class Address implements Business {
     }
 
     public String getAddStreet() {
-        return addStreet;
+        return addStreet.trim();
     }
 
     public void setAddStreet(String addStreet) {
@@ -71,15 +71,15 @@ public class Address implements Business {
     }
 
     public String getAddNumber() {
-        return addNumber;
+        return addNumber.trim();
     }
 
     public void setAddNumber(String addNumber) {
-        this.addNumber = addNumber;
+        this.addNumber = addNumber.trim();
     }
 
     public String getAddBox() {
-        return addBox;
+        return addBox.trim();
     }
 
     public void setAddBox(String addBox) {
@@ -87,7 +87,7 @@ public class Address implements Business {
     }
 
     public String getAddZip() {
-        return addZip;
+        return addZip.trim();
     }
 
     public void setAddZip(String addZip) {

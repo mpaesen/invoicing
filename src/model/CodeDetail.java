@@ -9,9 +9,9 @@ public class CodeDetail implements Business {
     public CodeDetail(String idCode, String codeDet, String codeDesc,
                       boolean active) {
         super();
-        this.idCode = idCode;
-        this.codeDet = codeDet;
-        this.codeDesc = codeDesc;
+        this.idCode = idCode.trim();
+        this.codeDet = codeDet.trim();
+        this.codeDesc = codeDesc.trim();
         this.active = active;
     }
 

@@ -27,19 +27,19 @@ public class Invoice implements Business {
                    String invHeaderComments, boolean active) {
         super();
         this.idInvoice = idInvoice;
-        this.invCusid = invCusid;
-        this.invAddid = invAddid;
-        this.invDlvAddid = invDlvAddid;
+        this.invCusid = invCusid.trim();
+        this.invAddid = invAddid.trim();
+        this.invDlvAddid = invDlvAddid.trim();
         this.invCrtDate = invCrtDate;
-        this.invCrtUserid = invCrtUserid;
+        this.invCrtUserid = invCrtUserid.trim();
         this.invUpdDate = invUpdDate;
-        this.invUpdUserid = invUpdUserid;
+        this.invUpdUserid = invUpdUserid.trim();
         this.invDate = invDate;
         this.invDueDate = invDueDate;
-        this.invStatus = invStatus;
-        this.invType = invType;
+        this.invStatus = invStatus.trim();
+        this.invType = invType.trim();
         this.invVat = invVat;
-        this.invHeaderComments = invHeaderComments;
+        this.invHeaderComments = invHeaderComments.trim();
         this.active = active;
     }
 

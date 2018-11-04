@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 /**
  * @author Mathy
+ * 
  */
 public class QuoteDetailController {
     private static DBFacade facade;
@@ -181,7 +182,7 @@ public class QuoteDetailController {
                         break;
                     }
                     case 2: {
-                        // in line int(3,0),
+                        // out Success int(3,0),
                         args[i] = "true";
                         argsType[i] = java.sql.Types.BOOLEAN;
                         argsIO[i] = ArgIO.OUT;

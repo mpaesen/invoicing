@@ -11,9 +11,9 @@ public class Number implements Business {
                   String nbrLstValue, boolean active) {
         super();
         this.active = active;
-        this.nbrCategory = nbrCategory;
-        this.nbrLstValue = nbrLstValue;
-        this.nbrStrValue = nbrStrValue;
+        this.nbrCategory = nbrCategory.trim();
+        this.nbrLstValue = nbrLstValue.trim();
+        this.nbrStrValue = nbrStrValue.trim();
         this.nbrYear = nbrYear;
     }
 

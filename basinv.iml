@@ -11,6 +11,6 @@
     <orderEntry type="library" name="mysql-connector-java-5.1.16-bin" level="project" />
     <orderEntry type="library" name="checkVAT" level="project" />
     <orderEntry type="library" name="log4j-1.2.17" level="project" />
-    <orderEntry type="library" name="org.junit.jupiter:junit-jupiter-api:5.1.0" level="project" />
+    <orderEntry type="library" name="junit-4.10" level="project" />
   </component>
 </module>

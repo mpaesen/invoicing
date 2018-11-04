@@ -15,11 +15,11 @@ public class Price implements Business {
     public Price(String idPrice, String priProdid, Date prifrom,
                  BigDecimal priUnit, String priMeasure, boolean active) {
         super();
-        this.idPrice = idPrice;
-        this.priProdid = priProdid;
+        this.idPrice = idPrice.trim();
+        this.priProdid = priProdid.trim();
         this.prifrom = prifrom;
         this.priUnit = priUnit;
-        this.priMeasure = priMeasure;
+        this.priMeasure = priMeasure.trim();
         this.active = active;
     }
 

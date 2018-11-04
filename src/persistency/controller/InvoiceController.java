@@ -1,15 +1,13 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
 import model.*;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import utilities.Constants;
-import utilities.Date;
-import utilities.DatumException;
-import utilities.NumberEnum;
+import utilities.*;
+import utilities.FixTypes;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,6 +17,7 @@ import java.util.List;
 
 /**
  * @author Mathy
+ * 
  */
 public class InvoiceController {
     private static DBFacade facade;

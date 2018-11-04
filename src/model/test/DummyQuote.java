@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package model.test;
 
@@ -10,6 +10,7 @@ import utilities.DatumException;
 
 /**
  * @author Mathy
+ *
  */
 public class DummyQuote extends Dummy {
 

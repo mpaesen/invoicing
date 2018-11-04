@@ -23,6 +23,7 @@ import java.util.Iterator;
 
 /**
  * @author java
+ *
  */
 public class InvoiceOutput extends DocumentOutput {
     private final Invoice invoice;
@@ -153,7 +154,6 @@ public class InvoiceOutput extends DocumentOutput {
     }
 
     /**
-     * @param InvoiceDetail
      * @return BigDecimal
      */
     private BigDecimal getInvoiceLineTotal(final InvoiceDetail detail) {

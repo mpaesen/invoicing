@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package view;
 
@@ -42,9 +42,9 @@ import static utilities.ComboBoxHelper.getSelectedItem;
  * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
  * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
-
 /**
  * @author Mathy
+ *
  */
 public class JDialogCustomer extends JDialog {
 
@@ -287,13 +287,14 @@ public class JDialogCustomer extends JDialog {
                 if (!CheckTaxNumber.isValidVat(strCountry, strVat)) {
                     errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");
                 }
-            } catch (final Exception e) {
+            } catch (final javax.xml.ws.soap.SOAPFaultException e) {
                 //e.printStackTrace();
                 errorMessages.append(e.getMessage());
                 errorMessages.append(":\t");
                 errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");
+            } catch (final Exception e) {
+                e.printStackTrace();
             }
-
         }
         if (jTextFieldCusemail.getText().equals("")) {
             // errorMessages.append(EMAIL_NOT_CORRECT+"\n");

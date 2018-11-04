@@ -12,6 +12,7 @@ import persistency.controller.CustomerController;
 import persistency.controller.ProductController;
 import persistency.controller.QuoteController;
 import persistency.controller.QuoteDetailController;
+import utilities.Constants;
 import utilities.CreateDirectory;
 import utilities.Figures;
 
@@ -19,8 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Iterator;
-
-import static utilities.Constants.*;
 
 public class QuoteOutput extends DocumentOutput {
     /**
@@ -54,7 +53,7 @@ public class QuoteOutput extends DocumentOutput {
         PdfPCell cell = null;
 
         // row 4
-        cell = new PdfPCell(new Phrase(DATE, FONT[18]));
+        cell = new PdfPCell(new Phrase(Constants.DATE, FONT[18]));
         cell.setColspan(2);
         cell.setBorder(Rectangle.NO_BORDER);
         table.addCell(cell);
@@ -65,7 +64,7 @@ public class QuoteOutput extends DocumentOutput {
         table.addCell(cell);
 
         // row 5
-        cell = new PdfPCell(new Phrase(REFERENCE_, FONT[18]));
+        cell = new PdfPCell(new Phrase(Constants.REFERENCE_, FONT[18]));
         cell.setColspan(2);
         cell.setBorder(Rectangle.NO_BORDER);
         table.addCell(cell);
@@ -76,7 +75,7 @@ public class QuoteOutput extends DocumentOutput {
         table.addCell(cell);
 
         // row6 (blank line)
-        cell = new PdfPCell(new Phrase(BLANK));
+        cell = new PdfPCell(new Phrase(Constants.BLANK));
         cell.setColspan(10);
         cell.setBorder(Rectangle.NO_BORDER);
         table.addCell(cell);
@@ -106,29 +105,29 @@ public class QuoteOutput extends DocumentOutput {
             cell = new PdfPCell(new Phrase(detail.getQteMeasure(), FONT[11]));
             table.addCell(cell);
 
-            cell = new PdfPCell(new Phrase(((detail.getQteQty().doubleValue() != Figures.ZERO) ? detail.getQteQty().toString() : BLANK), FONT[11]));
+            cell = new PdfPCell(new Phrase(((detail.getQteQty().doubleValue() != Figures.ZERO) ? detail.getQteQty().toString() : Constants.BLANK), FONT[11]));
             cell.setColspan(2);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(cell);
 
-            cell = new PdfPCell(new Phrase(EMPTY, FONT[11]));
+            cell = new PdfPCell(new Phrase(Constants.EMPTY, FONT[11]));
             cell.setColspan(2);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(cell);
 
-            cell = new PdfPCell(new Phrase(((detail.getQtePrice().doubleValue() != Figures.ZERO) ? detail.getQtePrice().toString() + EURO : BLANK), FONT[11]));
+            cell = new PdfPCell(new Phrase(((detail.getQtePrice().doubleValue() != Figures.ZERO) ? detail.getQtePrice().toString() + Constants.EURO : Constants.BLANK), FONT[11]));
             cell.setColspan(3);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(cell);
 
             lineTotal = detail.getQtePrice().multiply(detail.getQteQty()).setScale(2, BigDecimal.ROUND_HALF_UP);
             setTotalExcl(getTotalExcl() + lineTotal.doubleValue());
-            cell = new PdfPCell(new Phrase(((lineTotal.doubleValue() != Figures.ZERO) ? lineTotal.toString() + EURO : BLANK), FONT[18]));
+            cell = new PdfPCell(new Phrase(((lineTotal.doubleValue() != Figures.ZERO) ? lineTotal.toString() + Constants.EURO : Constants.BLANK), FONT[18]));
             cell.setColspan(3);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(cell);
             lineCounter--;
-            if ((!detail.getQteComments().equals(EMPTY)) && (detail.getQteProdid() != null)) {
+            if ((!detail.getQteComments().equals(Constants.EMPTY)) && (detail.getQteProdid() != null)) {
                 lineComments(detail, table);
                 lineCounter--;
             }
@@ -147,7 +146,7 @@ public class QuoteOutput extends DocumentOutput {
         cell.setColspan(22);
         table.addCell(cell);
 
-        cell = new PdfPCell(new Phrase(BLANK));
+        cell = new PdfPCell(new Phrase(Constants.BLANK));
         cell.setColspan(3);
         table.addCell(cell);
     }
@@ -172,15 +171,15 @@ public class QuoteOutput extends DocumentOutput {
 
     public void run() {
 
-        strManyDirectories.append(System.getProperty(DOCUMENT_ROOT)); // get
+        strManyDirectories.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
         // Document
         // Root
         strManyDirectories.append(DBConnection.getDocPath());
-        strManyDirectories.append(QUOTE_DETAIL_PATH);
+        strManyDirectories.append(Constants.QUOTE_DETAIL_PATH);
         try {
             CreateDirectory.run(strManyDirectories.toString());
             setCustomer(CustomerController.getCustomer(quote.getQteCusid()));
-            createPdf(strManyDirectories + PREFIX + SEPARATOR_FLAT + quote.getIdQuote() + SEPARATOR_FLAT + getCustomer().getCusName() + EXTENTION);
+            createPdf(strManyDirectories + PREFIX + Constants.SEPARATOR_FLAT + quote.getIdQuote() + Constants.SEPARATOR_FLAT + getCustomer().getCusName() + Constants.EXTENTION);
         } catch (final IOException e) {
             e.printStackTrace();
         } catch (final DocumentException e) {

@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -17,6 +17,7 @@ import java.util.*;
 
 /**
  * @author Mathy
+ * 
  */
 public class PriceController {
     private static DBFacade facade;
@@ -109,7 +110,6 @@ public class PriceController {
      * Get all price
      *
      * @param id
-     * @param date
      * @return
      */
 
@@ -237,7 +237,6 @@ public class PriceController {
      * Create one concrete price for a product
      *
      * @param price
-     * @param product
      * @return
      */
     public static boolean createPrice(Price price) {

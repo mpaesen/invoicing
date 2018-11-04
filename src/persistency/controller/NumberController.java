@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -14,7 +14,9 @@ import java.util.Iterator;
 
 /**
  * @author Mathy
+ *
  */
+@SuppressWarnings("ALL")
 public class NumberController {
 
     private static DBFacade facade;
@@ -23,7 +25,6 @@ public class NumberController {
     /**
      * Create a specific Number
      *
-     * @param Number
      * @return
      */
     public static boolean createNumber(Number detail) {
@@ -51,7 +52,6 @@ public class NumberController {
     /**
      * Update a specific Number
      *
-     * @param Number
      * @return
      */
     public static boolean updateNumber(Number detail) {

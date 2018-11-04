@@ -1,27 +1,25 @@
 package persistency.test;
 
+import junit.framework.TestCase;
 import model.BusinessTypeEnum;
 import model.Number;
 import model.test.DummyFactory;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import persistency.ArgIO;
 import persistency.DBFacade;
 import persistency.controller.NumberController;
 
-public class TestDummyNumber {
+public class TestDummyNumber extends TestCase {
     private DBFacade facade;
     private StringBuffer callableStatement;
     private Number number;
 
-    @BeforeAll
+    @Override
     public void setUp() {
         facade = new DBFacade();
         number = (Number) DummyFactory.createBusiness(BusinessTypeEnum.NUMBER);
         callableStatement = new StringBuffer();
     }
 
-    @Test
     public void testCreateNumber() {
         int LENGTH = 5;
         callableStatement.append("{call createNumber(?, ?, ?, ?, ?)}");
@@ -37,8 +35,8 @@ public class TestDummyNumber {
                 e.printStackTrace();
             }
         }
-        if (!facade.createObject(callableStatement.toString(), args,
-                argsType, argsIO)) throw new AssertionError();
+        assertTrue(facade.createObject(callableStatement.toString(), args,
+                argsType, argsIO));
     }
 
 }

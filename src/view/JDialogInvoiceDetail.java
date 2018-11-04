@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package view;
 
@@ -36,9 +36,9 @@ import static utilities.ComboBoxHelper.getSelectedItem;
  * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
  * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
-
 /**
  * @author Administrator
+ * 
  */
 public class JDialogInvoiceDetail extends JDialog {
     private JPanel jPanelNorth;

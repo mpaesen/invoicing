@@ -1,22 +1,22 @@
 package persistency.test;
 
+import junit.framework.TestCase;
 import model.BusinessTypeEnum;
 import model.Customer;
 import model.test.DummyFactory;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import persistency.controller.CustomerController;
 
 /**
  * @author Mathy
+ *
  */
-public class TestDummyCustomer {
+public class TestDummyCustomer extends TestCase {
 
     private Customer customer;
 
-    @BeforeAll
-    protected void setUp() {
-        //super.setUp();
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
         customer = (Customer) DummyFactory
                 .createBusiness(BusinessTypeEnum.CUSTOMER);
     }
@@ -24,9 +24,8 @@ public class TestDummyCustomer {
     /**
      * Create 1 customer via SP createCustomer()
      */
-    @Test
     public void testCreateCustomer() {
-        if (!CustomerController.createCustomer(customer)) throw new AssertionError();
+        assertTrue(CustomerController.createCustomer(customer));
     }
 
 }

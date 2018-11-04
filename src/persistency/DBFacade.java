@@ -1,6 +1,7 @@
 package persistency;
 
 import model.*;
+import model.Number;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -198,7 +199,7 @@ public class DBFacade {
                 break;
             }// InvoiceDetail
             case 9: {// Number
-                object = new model.Number(result.getString(1), new Integer(
+                object = new Number(result.getString(1), new Integer(
                         String.valueOf(result.getInt(2))), result.getString(3),
                         result.getString(4), true);
                 break;

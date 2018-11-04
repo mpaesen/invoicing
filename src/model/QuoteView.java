@@ -6,8 +6,8 @@ public class QuoteView extends Quote {
 
     public QuoteView(Quote quote, String cusName, String cusType) {
         super(quote);
-        this.cusName = cusName;
-        this.cusType = cusType;
+        this.cusName = cusName.trim();
+        this.cusType = cusType.trim();
     }
 
     public String getCusName() {

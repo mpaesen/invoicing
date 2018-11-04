@@ -8,9 +8,9 @@ public class InvoiceView extends Invoice {
     public InvoiceView(Invoice invoice, String cusName, String cusType,
                        String cusVat) {
         super(invoice);
-        this.cusName = cusName;
-        this.cusType = cusType;
-        this.cusVat = cusVat;
+        this.cusName = cusName.trim();
+        this.cusType = cusType.trim();
+        this.cusVat = cusVat.trim();
     }
 
     public String getCusName() {

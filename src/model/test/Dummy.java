@@ -11,7 +11,7 @@ public class Dummy {
     public static final int PHONE_ZONE_MAXIMUM = 99;
     public static final int MOBILE_PROVIDER_MINIMUM = 400;
     public static final int MOBILE_PROVIDER_MAXIMUM = 499;
-    public static final int MAX_CUSTOMER = 20;
+    public static final int MAX_CUSTOMER = 10;
     public static final int MAX_ADDRESS = 3;
     public static final int MAX_CONTACT = 5;
     public static final int MAX_PRODUCT = 20;

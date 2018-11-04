@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package persistency.controller;
 
@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 /**
  * @author Mathy
+ *
  */
 public class CustomerController {
     private static DBFacade facade;

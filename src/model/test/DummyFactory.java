@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package model.test;
 
@@ -7,6 +7,7 @@ import model.*;
 
 /**
  * @author Mathy
+ * 
  */
 public class DummyFactory {
     public static Business createBusiness(BusinessTypeEnum businessTypeEnum) {

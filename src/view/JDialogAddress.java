@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package view;
 
@@ -18,7 +18,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.TreeMap;
 
-
 /**
  * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
  * Builder, which is free for non-commercial use. If Jigloo is being used
@@ -29,9 +28,9 @@ import java.util.TreeMap;
  * PURCHASED FOR THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED LEGALLY FOR
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
-
 /**
  * @author Mathy
+ * 
  */
 public class JDialogAddress extends JDialog {
 

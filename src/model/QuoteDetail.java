@@ -16,13 +16,13 @@ public class QuoteDetail implements Business {
                        BigDecimal qteQty, String qteMeasure, BigDecimal qtePrice,
                        String qteComments, boolean active) {
         super();
-        this.idQuote = idQuote;
+        this.idQuote = idQuote.trim();
         this.qteDetLine = qteDetLine;
-        this.qteProdid = qteProdid;
+        this.qteProdid = qteProdid.trim();
         this.qteQty = qteQty;
-        this.qteMeasure = qteMeasure;
+        this.qteMeasure = qteMeasure.trim();
         this.qtePrice = qtePrice;
-        this.qteComments = qteComments;
+        this.qteComments = qteComments.trim();
         this.active = active;
     }
 

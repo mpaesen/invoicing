@@ -1,22 +1,21 @@
 package persistency.test;
 
+import junit.framework.TestCase;
 import model.BusinessTypeEnum;
 import model.Price;
 import model.Product;
 import model.test.DummyFactory;
 import model.test.DummyPrice;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import persistency.controller.ProductController;
 import utilities.Date;
 import utilities.DatumException;
 
-public class TestDummyPrice {
+public class TestDummyPrice extends TestCase {
     private Product product;
     private Price price;
     private Date date;
 
-    @BeforeAll
+    @Override
     public void setUp() {
         product = (Product) DummyFactory
                 .createBusiness(BusinessTypeEnum.PRODUCT);
@@ -25,11 +24,10 @@ public class TestDummyPrice {
 
     }
 
-    @Test
     public void testCreatePrice() throws DatumException {
         // assertTrue(PriceController.createPrice(price));
         System.out.println(price);
-        if (!price.getPrifrom().equals(new Date())) throw new AssertionError();
+        assertTrue(price.getPrifrom().equals(new Date()));
     }
 
 }

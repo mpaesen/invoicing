@@ -18,16 +18,16 @@ public class Contact implements Business {
                    String conEMail, String conTitle, String conPref, String conLang,
                    boolean active) {
         super();
-        this.idContact = idContact;
-        this.idCus = idCus;
-        this.conLName = conLName;
-        this.conFName = conFName;
-        this.conPhone = conPhone;
-        this.conMobile = conMobile;
-        this.conEMail = conEMail;
-        this.conTitle = conTitle;
-        this.conPref = conPref;
-        this.conLang = conLang;
+        this.idContact = idContact.trim();
+        this.idCus = idCus.trim();
+        this.conLName = conLName.trim();
+        this.conFName = conFName.trim();
+        this.conPhone = conPhone.trim();
+        this.conMobile = conMobile.trim();
+        this.conEMail = conEMail.trim();
+        this.conTitle = conTitle.trim();
+        this.conPref = conPref.trim();
+        this.conLang = conLang.trim();
         this.active = active;
     }
 

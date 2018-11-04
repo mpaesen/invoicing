@@ -8,6 +8,8 @@ import persistency.RDBConnection;
 import persistency.controller.*;
 import utilities.*;
 import utilities.Date;
+import utilities.Figures;
+import utilities.FixTypes;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -27,7 +29,7 @@ import static utilities.ComboBoxHelper.getSelectedItem;
 /**
  * This code was edited or generated using CloudGarden's Jigloo SWT/Swing GUI
  * Builder, which is free for non-commercial use. If Jigloo is being used
- * commercially (ie, by a corporation, company or business for any purposeF
+ * commercially (ie, by a corporation, company or business for any purpose
  * whatever) then you should purchase a license for each developer using Jigloo.
  * Please visit www.cloudgarden.com for details. Use of Jigloo implies
  * acceptance of these licensing terms. A COMMERCIAL LICENSE HAS NOT BEEN
@@ -96,7 +98,7 @@ public class JDialogInvoice extends JDialog {
     private double totalIncl = 0.0;
     private double totalVat6 = 0.0;
     private double totalVat21 = 0.0;
-    private utilities.Date toDay;
+    private Date toDay;
     private CRUDOperationEnum operation;
     private boolean freeFormat;
 
@@ -286,10 +288,10 @@ public class JDialogInvoice extends JDialog {
                     if (validateInput(errorMessages)) {
                         saveInput();
                         if (invoice.getInvStatus().equals(
-                                model.FixTypes.INVOICE_STATUS_CONFIRMED)) {
+                                FixTypes.INVOICE_STATUS_CONFIRMED)) {
                             // updateQuoteStatus(QuoteController.QUOTE_STATUS_OPEN);
                         } else {
-                            updateInvoiceStatus(model.FixTypes.INVOICE_STATUS_OPEN);
+                            updateInvoiceStatus(FixTypes.INVOICE_STATUS_OPEN);
                         }
                         new InvoiceOutput(invoice).run();
 
@@ -304,7 +306,7 @@ public class JDialogInvoice extends JDialog {
                     StringBuilder errorMessages = new StringBuilder(
                             Constants.EMPTY);
                     if (validateInput(errorMessages)) {
-                        updateInvoiceStatus(model.FixTypes.INVOICE_STATUS_PRINTED);
+                        updateInvoiceStatus(FixTypes.INVOICE_STATUS_PRINTED);
                     }
                 }
             });
@@ -333,23 +335,23 @@ public class JDialogInvoice extends JDialog {
         if (invoice != null) {
             getJButtonInvoiceSave().setEnabled(false);
             getJRadioButtonVat().setSelected(invoice.isInvVat());
-            if ((invoice.getInvStatus().equals(model.FixTypes.INVOICE_STATUS_OPEN))) {
+            if ((invoice.getInvStatus().equals(FixTypes.INVOICE_STATUS_OPEN))) {
                 getJButtonInvoiceSave().setEnabled(true);
                 getJRadioButtonVat().setEnabled(true);
             }
-            if (invoice.getInvStatus().equals(model.FixTypes.INVOICE_STATUS_PRINTED)) {
+            if (invoice.getInvStatus().equals(FixTypes.INVOICE_STATUS_PRINTED)) {
                 getJButtonInvoicePayed().setEnabled(true);
                 getJRadioButtonVat().setEnabled(true);
             }
             if ((jTableInvoiceDetailsModel.getRowCount() > 0)
                     && (!invoice.getInvStatus().equals(
-                    model.FixTypes.INVOICE_STATUS_CONFIRMED))) {
+                    FixTypes.INVOICE_STATUS_CONFIRMED))) {
                 getJButtonInvoicePrint().setEnabled(true);
 
             }
-            if (((invoice.getInvStatus().equals(model.FixTypes.INVOICE_STATUS_OPEN)))
+            if (((invoice.getInvStatus().equals(FixTypes.INVOICE_STATUS_OPEN)))
                     || invoice.getInvStatus().equals(
-                    model.FixTypes.INVOICE_STATUS_PRINTED)) {
+                    FixTypes.INVOICE_STATUS_PRINTED)) {
                 jTableInvoiceDetails.setEnabled(true);
                 // FixFormat
                 if (!freeFormat) {
@@ -363,12 +365,12 @@ public class JDialogInvoice extends JDialog {
     }
 
     private void updateInvoiceStatus(String previousStatus) {
-        if (previousStatus.equals(model.FixTypes.INVOICE_STATUS_PRINTED)) {
-            invoice = updateExistingInvoice(model.FixTypes.INVOICE_STATUS_CONFIRMED);
+        if (previousStatus.equals(FixTypes.INVOICE_STATUS_PRINTED)) {
+            invoice = updateExistingInvoice(FixTypes.INVOICE_STATUS_CONFIRMED);
             InvoiceController.updateInvoice(invoice);
         }
-        if (previousStatus.equals(model.FixTypes.INVOICE_STATUS_OPEN)) {
-            invoice = updateExistingInvoice(model.FixTypes.INVOICE_STATUS_PRINTED);
+        if (previousStatus.equals(FixTypes.INVOICE_STATUS_OPEN)) {
+            invoice = updateExistingInvoice(FixTypes.INVOICE_STATUS_PRINTED);
             InvoiceController.updateInvoice(invoice);
         }
         // Refresh buttons & invoiceheader after status modification
@@ -548,7 +550,7 @@ public class JDialogInvoice extends JDialog {
         Address address = null;
         jTextFieldInvoiceStatus.setText(CodeController.getOneCodeDetail(
                 CodeEnum.INVOICE_STATUS.getType(),
-                model.FixTypes.DEFAULT_INVOICE_STATUS).getCodeDesc());
+                FixTypes.DEFAULT_INVOICE_STATUS).getCodeDesc());
         getJTextAreaComments().setEnabled(true);
         if (invoice != null) {
             customer = CustomerController.getCustomer(invoice.getInvCusid());
@@ -594,7 +596,7 @@ public class JDialogInvoice extends JDialog {
             getJTextAreaComments().setEnabled(false);
 
             if (!invoice.getInvStatus().equals(
-                    model.FixTypes.INVOICE_STATUS_CONFIRMED)) {
+                    FixTypes.INVOICE_STATUS_CONFIRMED)) {
                 getInvDateChooser().setEnabled(true);
                 getInvDueDateChooser().setEnabled(true);
                 getJComboBoxAddressSelection().setEnabled(true);
@@ -609,15 +611,15 @@ public class JDialogInvoice extends JDialog {
             jTextFieldCustomer.setText(customer.getCusName());
             jTextFieldCompanyRegistrationNumber.setText(customer.getCusVat());
             List<Address> list = InvoiceController.getAddressesByCustomer(
-                    customer, model.FixTypes.INVOICE_ADRESS_TYPE);
+                    customer, FixTypes.INVOICE_ADRESS_TYPE);
             if (!list.isEmpty()) {
                 address = list.get(0);
                 jTextFieldInvoiceAddress.setText(address.toString());
                 if ((dlvAddresses == null) || dlvAddresses.isEmpty()) {
-                    getExistingAddresses(model.FixTypes.DELIVERY_ADRESS_TYPE);
+                    getExistingAddresses(FixTypes.DELIVERY_ADRESS_TYPE);
                 }
                 if ((dlvAddresses == null) || dlvAddresses.isEmpty()) {
-                    getExistingAddresses(model.FixTypes.INVOICE_ADRESS_TYPE);
+                    getExistingAddresses(FixTypes.INVOICE_ADRESS_TYPE);
                 }
             }
             jPanelHeaderNorth.add(getJComboBoxAddressSelection(), "1, 3, 3, 3");
@@ -652,7 +654,7 @@ public class JDialogInvoice extends JDialog {
     private Object[][] getInvoiceDetailColumns(int[] columnWidth) {
         Object[][] columns = null;
         if (freeFormat) {
-            columns = new Object[utilities.Figures.MAX_INV_DETAIL_LINES][utilities.Figures.MAX_INV_DETAIL_COLUMNS];
+            columns = new Object[Figures.MAX_INV_DETAIL_LINES][Figures.MAX_INV_DETAIL_COLUMNS];
         }
         int i = 0;
         int last = 0;
@@ -724,13 +726,13 @@ public class JDialogInvoice extends JDialog {
                 .multiply(detail.getInvPrice());
         totalExcl += lineTotal.doubleValue();
         BigDecimal vat = new BigDecimal(detail.getInvVat());
-        double vatAmount = utilities.Figures.ZERO;
+        double vatAmount = Figures.ZERO;
         vatAmount = lineTotal.doubleValue() * vat.doubleValue()
-                / utilities.Figures.HUNDRED;
-        if (vat.doubleValue() == utilities.Figures.SIX) {
+                / Figures.HUNDRED;
+        if (vat.doubleValue() == Figures.SIX) {
             totalVat6 += vatAmount;
         }
-        if (vat.doubleValue() == utilities.Figures.TWENTYONE) {
+        if (vat.doubleValue() == Figures.TWENTYONE) {
             totalVat21 += vatAmount;
         }
         return lineTotal;
@@ -800,11 +802,11 @@ public class JDialogInvoice extends JDialog {
     private JComboBox getJComboBoxAddressSelection() {
         if (jComboBoxAddressSelection == null) {
 
-            getExistingAddresses(model.FixTypes.DELIVERY_ADRESS_TYPE);
+            getExistingAddresses(FixTypes.DELIVERY_ADRESS_TYPE);
         }
         if (jComboBoxAddressSelectionModel.getSize() == 0) {
 
-            getExistingAddresses(model.FixTypes.INVOICE_ADRESS_TYPE);
+            getExistingAddresses(FixTypes.INVOICE_ADRESS_TYPE);
         }
 
         return jComboBoxAddressSelection;
@@ -928,7 +930,7 @@ public class JDialogInvoice extends JDialog {
         }
         // All modifications should be shown real-time
         if (freeFormat) {
-            for (int row = 0; row < utilities.Figures.MAX_INV_DETAIL_LINES; row++) {
+            for (int row = 0; row < Figures.MAX_INV_DETAIL_LINES; row++) {
                 if (!lineIsEmpty(row)) {
                     saveDetail(row);
                 } else {
@@ -937,7 +939,7 @@ public class JDialogInvoice extends JDialog {
                                     (Integer) jTableInvoiceDetails.getModel()
                                             .getValueAt(row, 0));
                     if ((detail != null)
-                            && (detail.getInvPrice().doubleValue() != utilities.Figures.ZERO)) {
+                            && (detail.getInvPrice().doubleValue() != Figures.ZERO)) {
                         InvoiceDetailController.removeInvoiceDetail(detail);
                     }
                 }
@@ -957,7 +959,7 @@ public class JDialogInvoice extends JDialog {
                 .getSelectedItem().toString());
         Address address = null;
         List<Address> list = InvoiceController.getAddressesByCustomer(customer,
-                model.FixTypes.INVOICE_ADRESS_TYPE);
+                FixTypes.INVOICE_ADRESS_TYPE);
         if (!list.isEmpty()) {
             address = list.get(0);
         }
@@ -988,7 +990,7 @@ public class JDialogInvoice extends JDialog {
                 .getSelectedItem().toString());
         Address address = null;
         List<Address> list = InvoiceController.getAddressesByCustomer(customer,
-                model.FixTypes.INVOICE_ADRESS_TYPE);
+                FixTypes.INVOICE_ADRESS_TYPE);
         if (!list.isEmpty()) {
             address = list.get(0);
         }
@@ -1006,7 +1008,7 @@ public class JDialogInvoice extends JDialog {
                 getInvDate(),// invDate
                 getDueDate(), // invDueDate | date
                 status, // invStatus | char(5)
-                model.FixTypes.DEFAULT_INVOICE_TYPE, // invType | char(5)
+                FixTypes.DEFAULT_INVOICE_TYPE, // invType | char(5)
                 // (default value: Offer)
                 getJRadioButtonVat().isSelected(), // invVat | tinyint(1)
                 comments, // invHeadercomments varchar(256)
@@ -1060,9 +1062,9 @@ public class JDialogInvoice extends JDialog {
         Date dueDate = null;
         try {
             dueDate = new Date(getInvDueDateChooser().getCalendar().get(
-                    java.util.Calendar.DATE), getInvDueDateChooser().getCalendar().get(
-                    java.util.Calendar.MONTH), getInvDueDateChooser().getCalendar().get(
-                    java.util.Calendar.YEAR));
+                    Calendar.DATE), getInvDueDateChooser().getCalendar().get(
+                    Calendar.MONTH), getInvDueDateChooser().getCalendar().get(
+                    Calendar.YEAR));
         } catch (DatumException e) {
             e.printStackTrace();
         }
@@ -1077,9 +1079,9 @@ public class JDialogInvoice extends JDialog {
         try {
             invoiceDate = new Date();
             invoiceDate.setDatum(
-                    getInvDateChooser().getCalendar().get(java.util.Calendar.DATE),
-                    getInvDateChooser().getCalendar().get(java.util.Calendar.MONTH),
-                    getInvDateChooser().getCalendar().get(java.util.Calendar.YEAR));
+                    getInvDateChooser().getCalendar().get(Calendar.DATE),
+                    getInvDateChooser().getCalendar().get(Calendar.MONTH),
+                    getInvDateChooser().getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
             e.printStackTrace();
         }
@@ -1115,8 +1117,8 @@ public class JDialogInvoice extends JDialog {
      * @return
      */
     private boolean validateInvoiceDetail(StringBuilder errorMessages) {
-        for (int row = 0; row < utilities.Figures.MAX_INV_DETAIL_LINES; row++) {
-            for (int col = 1; col < utilities.Figures.MAX_INV_DETAIL_COLUMNS; col++) {
+        for (int row = 0; row < Figures.MAX_INV_DETAIL_LINES; row++) {
+            for (int col = 1; col < Figures.MAX_INV_DETAIL_COLUMNS; col++) {
                 if (!lineIsEmpty(row)) {
                     if (!validCellUpdated(row, col)) {
                         errorMessages.append(Constants.INVALID_DETAIL_LINE);
@@ -1187,7 +1189,7 @@ public class JDialogInvoice extends JDialog {
                             // confirmed
                             if (!invoice.getInvStatus().equals(
 
-                                    model.FixTypes.INVOICE_STATUS_CONFIRMED)) {
+                                    FixTypes.INVOICE_STATUS_CONFIRMED)) {
                                 if (!freeFormat) {
                                     Integer line = Integer
                                             .valueOf(jTableInvoiceDetailsModel
@@ -1231,7 +1233,7 @@ public class JDialogInvoice extends JDialog {
                             // no modifications allowed when invoice is
                             // confirmed
                             if (!invoice.getInvStatus().equals(
-                                    model.FixTypes.INVOICE_STATUS_CONFIRMED)) {
+                                    FixTypes.INVOICE_STATUS_CONFIRMED)) {
 
                                 Integer line = Integer
                                         .valueOf(jTableInvoiceDetailsModel
@@ -1450,7 +1452,7 @@ public class JDialogInvoice extends JDialog {
                 Constants.UNIT, new BigDecimal(1000), new BigDecimal(10000000)};
         TableCellRenderer headerRenderer = table.getTableHeader()
                 .getDefaultRenderer();
-        for (int i = 0; i < utilities.Figures.MAX_INV_DETAIL_COLUMNS; i++) {
+        for (int i = 0; i < Figures.MAX_INV_DETAIL_COLUMNS; i++) {
             column = table.getColumnModel().getColumn(i);
             comp = headerRenderer.getTableCellRendererComponent(null,
                     column.getHeaderValue(), false, false, 0, 0);
@@ -1466,7 +1468,7 @@ public class JDialogInvoice extends JDialog {
 
     public boolean lineIsEmpty(int row) {
         Object object = null;
-        for (int col = 1; col < utilities.Figures.MAX_INV_DETAIL_COLUMNS - 2; col++) {
+        for (int col = 1; col < Figures.MAX_INV_DETAIL_COLUMNS - 2; col++) {
             object = jTableInvoiceDetails.getModel().getValueAt(row, col);
             switch (col) {
                 case 1:
@@ -1596,7 +1598,7 @@ public class JDialogInvoice extends JDialog {
                     .getValueAt(row, 3));
 
             double total = qty * price;
-            ((GenericTableModel) jTableInvoiceDetails.getModel()).getData()[row][utilities.Figures.MAX_INV_DETAIL_COLUMNS - 1] = new BigDecimal(
+            ((GenericTableModel) jTableInvoiceDetails.getModel()).getData()[row][Figures.MAX_INV_DETAIL_COLUMNS - 1] = new BigDecimal(
                     total).setScale(2, BigDecimal.ROUND_HALF_UP);
         }
 

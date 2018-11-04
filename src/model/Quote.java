@@ -24,18 +24,18 @@ public class Quote implements Business {
                  String qteType, boolean qteVat, String qteHeaderComments,
                  boolean active) {
         super();
-        this.idQuote = idQuote;
-        this.qteCusid = qteCusid;
-        this.qteDlvAddid = qteDlvAddid;
+        this.idQuote = idQuote.trim();
+        this.qteCusid = qteCusid.trim();
+        this.qteDlvAddid = qteDlvAddid.trim();
         this.qteCrtdate = qteCrtdate;
-        this.qteCrtUserid = qteCrtUserid;
+        this.qteCrtUserid = qteCrtUserid.trim();
         this.qteUpdDate = qteUpdDate;
-        this.qteUpdUserid = qteUpdUserid;
+        this.qteUpdUserid = qteUpdUserid.trim();
         this.qteReqDlvDate = qteReqDlvDate;
-        this.qteStatus = qteStatus;
-        this.qteType = qteType;
+        this.qteStatus = qteStatus.trim();
+        this.qteType = qteType.trim();
         this.qteVat = qteVat;
-        this.qteHeaderComments = qteHeaderComments;
+        this.qteHeaderComments = qteHeaderComments.trim();
         this.active = active;
     }
 

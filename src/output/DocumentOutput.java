@@ -19,9 +19,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import static java.awt.Font.BOLD;
-import static java.awt.Font.ITALIC;
-
 public abstract class DocumentOutput {
     /**
      * The resulting PDF file.
@@ -33,29 +30,29 @@ public abstract class DocumentOutput {
     public static final BaseColor TEXT_COLOR = BaseColor.BLUE;
 
     static {
-        FONT[0] = new Font(FontFamily.HELVETICA, 18, BOLD, TITLE_COLOR);
-        FONT[1] = new Font(FontFamily.HELVETICA, 16, BOLD, TITLE_COLOR);
-        FONT[2] = new Font(FontFamily.HELVETICA, 14, ITALIC);
-        FONT[3] = new Font(FontFamily.HELVETICA, 12, BOLD, TEXT_COLOR);
-        FONT[4] = new Font(FontFamily.HELVETICA, 12, ITALIC);
+        FONT[0] = new Font(FontFamily.HELVETICA, 18, Font.BOLD, TITLE_COLOR);
+        FONT[1] = new Font(FontFamily.HELVETICA, 16, Font.BOLD, TITLE_COLOR);
+        FONT[2] = new Font(FontFamily.HELVETICA, 14, Font.ITALIC);
+        FONT[3] = new Font(FontFamily.HELVETICA, 12, Font.BOLD, TEXT_COLOR);
+        FONT[4] = new Font(FontFamily.HELVETICA, 12, Font.ITALIC);
         FONT[5] = new Font(FontFamily.HELVETICA, 12, Font.NORMAL, TEXT_COLOR);
-        FONT[6] = new Font(FontFamily.HELVETICA, 8, BOLD, TEXT_COLOR);
-        FONT[7] = new Font(FontFamily.HELVETICA, 8, ITALIC, TEXT_COLOR);
+        FONT[6] = new Font(FontFamily.HELVETICA, 8, Font.BOLD, TEXT_COLOR);
+        FONT[7] = new Font(FontFamily.HELVETICA, 8, Font.ITALIC, TEXT_COLOR);
         FONT[8] = new Font(FontFamily.HELVETICA, 8, Font.NORMAL, TEXT_COLOR);
-        FONT[9] = new Font(FontFamily.HELVETICA, 7, BOLD);
-        FONT[10] = new Font(FontFamily.HELVETICA, 7, ITALIC);
+        FONT[9] = new Font(FontFamily.HELVETICA, 7, Font.BOLD);
+        FONT[10] = new Font(FontFamily.HELVETICA, 7, Font.ITALIC);
         FONT[11] = new Font(FontFamily.HELVETICA, 7);
-        FONT[12] = new Font(FontFamily.HELVETICA, 6, BOLD);
-        FONT[13] = new Font(FontFamily.HELVETICA, 6, ITALIC);
+        FONT[12] = new Font(FontFamily.HELVETICA, 6, Font.BOLD);
+        FONT[13] = new Font(FontFamily.HELVETICA, 6, Font.ITALIC);
         FONT[14] = new Font(FontFamily.HELVETICA, 6);
-        FONT[15] = new Font(FontFamily.HELVETICA, 12, BOLD);
-        FONT[16] = new Font(FontFamily.HELVETICA, 12, ITALIC);
+        FONT[15] = new Font(FontFamily.HELVETICA, 12, Font.BOLD);
+        FONT[16] = new Font(FontFamily.HELVETICA, 12, Font.ITALIC);
         FONT[17] = new Font(FontFamily.HELVETICA, 12);
-        FONT[18] = new Font(FontFamily.HELVETICA, 8, BOLD);
-        FONT[19] = new Font(FontFamily.HELVETICA, 8, ITALIC);
+        FONT[18] = new Font(FontFamily.HELVETICA, 8, Font.BOLD);
+        FONT[19] = new Font(FontFamily.HELVETICA, 8, Font.ITALIC);
         FONT[20] = new Font(FontFamily.HELVETICA, 8);
-        FONT[21] = new Font(FontFamily.HELVETICA, 10, BOLD);
-        FONT[22] = new Font(FontFamily.HELVETICA, 10, ITALIC);
+        FONT[21] = new Font(FontFamily.HELVETICA, 10, Font.BOLD);
+        FONT[22] = new Font(FontFamily.HELVETICA, 10, Font.ITALIC);
         FONT[23] = new Font(FontFamily.HELVETICA, 10);
     }
 
@@ -434,7 +431,6 @@ public abstract class DocumentOutput {
     /**
      * Creates a PDF with information about the movies
      *
-     * @param filename the name of the PDF file that will be created.
      * @throws DocumentException
      * @throws IOException
      */

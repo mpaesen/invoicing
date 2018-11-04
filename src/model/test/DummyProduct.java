@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package model.test;
 
@@ -8,6 +8,7 @@ import persistency.controller.NumberController;
 
 /**
  * @author Mathy
+ *
  */
 public class DummyProduct extends Dummy {
 
