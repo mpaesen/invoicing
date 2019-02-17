@@ -6,8 +6,8 @@ package persistency.controller;
 import model.*;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import utilities.*;
 import utilities.FixTypes;
+import utilities.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

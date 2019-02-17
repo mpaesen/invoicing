@@ -3,7 +3,6 @@
  */
 package view;
 
-import eu.europa.test.CheckTaxNumber;
 import info.clearthought.layout.TableLayout;
 import model.Address;
 import model.Business;
@@ -28,6 +27,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import static eu.europa.test.CheckTaxNumber.isValidVat;
 import static utilities.ComboBoxHelper.getSelectedItem;
 
 /**
@@ -284,16 +284,14 @@ public class JDialogCustomer extends JDialog {
             final String strVat = jTextFieldCusVat.getText().substring(2);
             final String strCountry = jTextFieldCusVat.getText().substring(0, 2);
             try {
-                if (!CheckTaxNumber.isValidVat(strCountry, strVat)) {
+                if (!isValidVat(strCountry, strVat)) {
                     errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");
                 }
-            } catch (final javax.xml.ws.soap.SOAPFaultException e) {
+            } catch (final Exception e) {
                 //e.printStackTrace();
                 errorMessages.append(e.getMessage());
                 errorMessages.append(":\t");
                 errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");
-            } catch (final Exception e) {
-                e.printStackTrace();
             }
         }
         if (jTextFieldCusemail.getText().equals("")) {

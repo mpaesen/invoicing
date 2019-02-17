@@ -214,7 +214,6 @@ public class JDialogProduct extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Product updateExistingProduct() {
@@ -236,7 +235,6 @@ public class JDialogProduct extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Product createNewProduct() {

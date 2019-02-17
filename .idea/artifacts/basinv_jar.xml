@@ -1,6 +1,9 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="basinv:jar">
+  <artifact type="jar" build-on-make="true" name="basinv:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/basinv_jar</output-path>
+    <properties id="ant-preprocessing">
+      <options enabled="true" />
+    </properties>
     <root id="archive" name="basinv.jar">
       <element id="module-output" name="basinv" />
       <element id="extracted-dir" path="/Library/Java/Extensions/log4j-1.2.17.jar" path-in-jar="/" />

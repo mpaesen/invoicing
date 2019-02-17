@@ -6,10 +6,10 @@ import model.*;
 import output.InvoiceOutput;
 import persistency.RDBConnection;
 import persistency.controller.*;
-import utilities.*;
 import utilities.Date;
 import utilities.Figures;
 import utilities.FixTypes;
+import utilities.*;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -21,8 +21,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 import static utilities.ComboBoxHelper.getSelectedItem;
 
@@ -715,8 +715,8 @@ public class JDialogInvoice extends JDialog {
     private void fillDetailLines(int start, Object[][] columns) {
         for (int i = start; i < columns.length; i++) {
             columns[i] = new Object[]{new Integer(getLineCounter()),
-                    new String(), new BigDecimal(0d), new BigDecimal(0d),
-                    new String(), new BigDecimal(0d), new BigDecimal(0d)};
+                    "", new BigDecimal(0d), new BigDecimal(0d),
+                    "", new BigDecimal(0d), new BigDecimal(0d)};
         }
     }
 

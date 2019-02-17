@@ -8,6 +8,8 @@
       <root url="jar:///Library/Java/Extensions/TableLayout.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar:///Library/Java/Extensions/checkVAT.jar!/" />
+    </SOURCES>
   </library>
 </component>

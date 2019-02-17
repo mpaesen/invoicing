@@ -1,7 +1,7 @@
 package persistency;
 
-import model.*;
 import model.Number;
+import model.*;
 import utilities.Date;
 import utilities.DatumException;
 

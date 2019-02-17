@@ -1,11 +1,11 @@
 package view;
 
 import com.toedter.calendar.JDateChooser;
-import model.*;
 import model.Number;
+import model.*;
 import persistency.controller.*;
-import utilities.*;
 import utilities.FixTypes;
+import utilities.*;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -2121,7 +2121,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
                     .getAllCodeHeaders();
             // CodeHeaders
             final Iterator<Business> it = list.iterator();
-            final CodeHeader codes[] = new CodeHeader[list.size()];
+            final CodeHeader[] codes = new CodeHeader[list.size()];
             int i = 0;
             while (it.hasNext()) {
                 codes[i] = (CodeHeader) it.next();
