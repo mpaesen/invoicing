@@ -12,6 +12,7 @@ import persistency.controller.CustomerController;
 import persistency.controller.InvoiceController;
 import persistency.controller.InvoiceDetailController;
 import persistency.controller.ProductController;
+import persistency.logging.Logger;
 import utilities.Constants;
 import utilities.CreateDirectory;
 import utilities.Figures;
@@ -251,9 +252,11 @@ public class InvoiceOutput extends DocumentOutput {
             setCustomer(CustomerController.getCustomer(invoice.getInvCusid()));
             createPdf(strManyDirectories + PREFIX + Constants.SEPARATOR_FLAT + invoice.getIdInvoice() + Constants.SEPARATOR_FLAT + getCustomer().getCusName() + Constants.EXTENTION);
         } catch (final IOException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         } catch (final DocumentException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 

@@ -7,6 +7,7 @@ import persistency.controller.CodeController;
 import persistency.controller.NumberController;
 import persistency.controller.PriceController;
 import persistency.controller.ProductController;
+import persistency.logging.Logger;
 import utilities.*;
 
 import javax.swing.*;
@@ -78,7 +79,8 @@ public class JDialogProduct extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 
@@ -118,7 +120,8 @@ public class JDialogProduct extends JDialog {
             this.setLocationRelativeTo(parent);
             this.setVisible(true);
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 

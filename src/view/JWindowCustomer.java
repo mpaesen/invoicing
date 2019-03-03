@@ -5,6 +5,7 @@ import model.BusinessTypeEnum;
 import model.Customer;
 import persistency.controller.CodeController;
 import persistency.controller.CustomerController;
+import persistency.logging.Logger;
 import utilities.CRUDOperationEnum;
 import utilities.CodeEnum;
 import utilities.FixTypes;
@@ -90,7 +91,8 @@ public class JWindowCustomer extends JDialog {
                 setVisible(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 

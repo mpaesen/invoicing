@@ -6,6 +6,7 @@ import model.*;
 import output.QuoteOutput;
 import persistency.RDBConnection;
 import persistency.controller.*;
+import persistency.logging.Logger;
 import utilities.Date;
 import utilities.Figures;
 import utilities.FixTypes;
@@ -95,7 +96,8 @@ public class JDialogQuote extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 
@@ -125,7 +127,8 @@ public class JDialogQuote extends JDialog {
         try {
             this.toDay = new Date();
         } catch (DatumException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
         this.parent = frame;
     }
@@ -160,7 +163,8 @@ public class JDialogQuote extends JDialog {
                 this.setVisible(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 

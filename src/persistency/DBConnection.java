@@ -1,5 +1,7 @@
 package persistency;
 
+import persistency.logging.Logger;
+
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.GregorianCalendar;
@@ -13,19 +15,6 @@ public abstract class DBConnection {
     private Properties info;
     private CallableStatement procedure;
 
-    /**
-     * @return the logLevel
-     */
-    public static String getLogLevel() {
-        return logLevel;
-    }
-
-    /**
-     * @param logLevel the logLevel to set
-     */
-    public static void setLogLevel(final String logLevel) {
-        DBConnection.logLevel = logLevel;
-    }
 
     public static String getDocPath() {
         return docPath;
@@ -89,8 +78,9 @@ public abstract class DBConnection {
                 prepareArguments(procedure, (i + 1), args[i], argTypes[i], argsIO[i]);
             }
             return procedure.executeQuery();
-        } catch (final SQLException exp) {
-            exp.printStackTrace();
+        } catch (final SQLException e) {
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
         return null;
     }
@@ -99,8 +89,9 @@ public abstract class DBConnection {
         try {
             procedure = callProc(sql);
             return procedure.executeQuery();
-        } catch (final SQLException exp) {
-            exp.printStackTrace();
+        } catch (final SQLException e) {
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
         return null;
     }
@@ -115,8 +106,9 @@ public abstract class DBConnection {
             }
             success = procedure.execute();
             success = procedure.getBoolean(args.length);
-        } catch (final SQLException exp) {
-            exp.printStackTrace();
+        } catch (final SQLException e) {
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
         return success;
     }
@@ -131,8 +123,9 @@ public abstract class DBConnection {
             }
             success = procedure.execute();
             success = (args.length <= 0 || procedure.getBoolean(args.length));
-        } catch (final SQLException exp) {
-            exp.printStackTrace();
+        } catch (final SQLException e) {
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
         return success;
     }
@@ -204,8 +197,9 @@ public abstract class DBConnection {
                     }
                 }
             }
-        } catch (final SQLException exp) {
-            exp.printStackTrace();
+        } catch (final SQLException e) {
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 }

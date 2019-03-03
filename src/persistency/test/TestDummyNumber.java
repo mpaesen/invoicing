@@ -7,11 +7,13 @@ import model.test.DummyFactory;
 import persistency.ArgIO;
 import persistency.DBFacade;
 import persistency.controller.NumberController;
+import persistency.logging.Logger;
 
 public class TestDummyNumber extends TestCase {
     private DBFacade facade;
     private StringBuffer callableStatement;
     private Number number;
+
 
     @Override
     public void setUp() {
@@ -31,8 +33,9 @@ public class TestDummyNumber extends TestCase {
                 NumberController.prepareNumber(number, args, argsType, argsIO,
                         i);
             } catch (Exception e) {
-                System.err.print(number);
-                e.printStackTrace();
+                //System.err.print(number);
+                Logger.getLogger().logMsg(String.valueOf(number));
+                //e.printStackTrace();
             }
         }
         assertTrue(facade.createObject(callableStatement.toString(), args,

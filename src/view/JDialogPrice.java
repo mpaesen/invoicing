@@ -7,6 +7,7 @@ import model.Product;
 import persistency.controller.CodeController;
 import persistency.controller.NumberController;
 import persistency.controller.PriceController;
+import persistency.logging.Logger;
 import utilities.*;
 
 import javax.swing.*;
@@ -59,7 +60,8 @@ public class JDialogPrice extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 
@@ -81,7 +83,8 @@ public class JDialogPrice extends JDialog {
         try {
             this.toDay = new Date();
         } catch (DatumException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
         this.parent = frame;
     }
@@ -97,7 +100,8 @@ public class JDialogPrice extends JDialog {
             this.setLocationRelativeTo(parent);
             this.setVisible(true);
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
     }
 

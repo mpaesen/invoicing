@@ -9,6 +9,7 @@ import persistency.RDBConnection;
 import persistency.controller.AddressController;
 import persistency.controller.CodeController;
 import persistency.controller.CustomerController;
+import persistency.logging.Logger;
 import utilities.Constants;
 import utilities.Figures;
 import utilities.FixTypes;
@@ -89,11 +90,14 @@ public abstract class DocumentOutput {
             table.addCell(cell);
 
         } catch (final BadElementException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         } catch (final MalformedURLException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         } catch (final IOException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(e.getMessage());
+            //e.printStackTrace();
         }
 
         // row 1
