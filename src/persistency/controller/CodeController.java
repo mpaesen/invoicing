@@ -8,6 +8,7 @@ import model.BusinessTypeEnum;
 import model.CodeDetail;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -59,7 +60,8 @@ public class CodeController {
                         throw new Exception(
                                 "Error while creating SP readOneCodeDetail()");
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                        //e.printStackTrace();
                     }
             }
         }
@@ -97,7 +99,8 @@ public class CodeController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                //e.printStackTrace();
             }
         }
         list = facade.getResult(BusinessTypeEnum.CODE_DETAIL,
@@ -182,8 +185,9 @@ public class CodeController {
             try {
                 CodeController.prepareCode(detail, args, argsType, argsIO, i);
             } catch (Exception e) {
-                System.err.print(detail);
-                e.printStackTrace();
+                //System.err.print(detail);
+                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -209,8 +213,9 @@ public class CodeController {
             try {
                 CodeController.prepareCode(detail, args, argsType, argsIO, i);
             } catch (Exception e) {
-                System.err.print(detail);
-                e.printStackTrace();
+                //System.err.print(detail);
+                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -273,7 +278,9 @@ public class CodeController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                //System.err.print(detail);
+                Logger.getLogger().logMsg(String.format(callableStatement + detail));
+                //e.printStackTrace();
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),

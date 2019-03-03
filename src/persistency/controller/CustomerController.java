@@ -8,6 +8,7 @@ import model.BusinessTypeEnum;
 import model.Customer;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -90,7 +91,9 @@ public class CustomerController {
                 }
 
             } catch (final Exception e) {
-                e.printStackTrace();
+                //  System.err.print(contact);
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                //e.printStackTrace();
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(), args, argsType, argsIO);
@@ -150,7 +153,9 @@ public class CustomerController {
                         throw new Exception("Error while creating SP readAllCustomer()");
                 }
             } catch (final Exception e) {
-                e.printStackTrace();
+                //  System.err.print(contact);
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                //e.printStackTrace();
             }
         }
         list = facade.getResult(BusinessTypeEnum.CUSTOMER, callableStatement.toString(), args, argsType, argsIO);
@@ -311,8 +316,8 @@ public class CustomerController {
             try {
                 CustomerController.prepareCustomer(customer, args, argsType, argsIO, i);
             } catch (final Exception e) {
-                System.err.print(customer);
-                e.printStackTrace();
+                // System.err.print(customer);
+                Logger.getLogger().logMsg(String.format(callableStatement + customer.toString()));
             }
         }
         return facade.createObject(callableStatement.toString(), args, argsType, argsIO);

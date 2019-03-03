@@ -8,6 +8,7 @@ import model.BusinessTypeEnum;
 import model.Number;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -40,8 +41,8 @@ public class NumberController {
                 NumberController.prepareNumber(detail, args, argsType, argsIO,
                         i);
             } catch (Exception e) {
-                System.err.print(detail);
-                e.printStackTrace();
+                // System.err.print(detail);
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -67,8 +68,8 @@ public class NumberController {
                 NumberController.prepareNumber(detail, args, argsType, argsIO,
                         i);
             } catch (Exception e) {
-                System.err.print(detail);
-                e.printStackTrace();
+                //System.err.print(detail);
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -113,7 +114,7 @@ public class NumberController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.NUMBER,
@@ -277,7 +278,7 @@ public class NumberController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),

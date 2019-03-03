@@ -8,6 +8,7 @@ import model.BusinessTypeEnum;
 import model.Product;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -40,7 +41,7 @@ public class ProductController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.PRODUCT,
@@ -70,7 +71,7 @@ public class ProductController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.PRODUCT,
@@ -162,8 +163,8 @@ public class ProductController {
                 ProductController.prepareProduct(product, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(product);
-                e.printStackTrace();
+                //System.err.print(product);
+                Logger.getLogger().logMsg(String.format(callableStatement + product.toString()));
             }
         }
         return facade.createObject(callableStatement.toString(), args,
@@ -188,8 +189,7 @@ public class ProductController {
                 ProductController.prepareProduct(product, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(product);
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(callableStatement + product.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -227,7 +227,7 @@ public class ProductController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),
@@ -288,7 +288,7 @@ public class ProductController {
                                 "Error while creating SP readAllProduct()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = facade.getResult(BusinessTypeEnum.PRODUCT,

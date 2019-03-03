@@ -8,6 +8,7 @@ import model.BusinessTypeEnum;
 import model.Quote;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -182,8 +183,7 @@ public class QuoteController {
             try {
                 QuoteController.prepareQuote(quote, args, argsType, argsIO, i);
             } catch (Exception e) {
-                System.err.print(quote);
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(callableStatement + quote.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -207,8 +207,7 @@ public class QuoteController {
             try {
                 QuoteController.prepareQuote(quote, args, argsType, argsIO, i);
             } catch (Exception e) {
-                System.err.print(quote);
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(callableStatement + quote.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -267,7 +266,7 @@ public class QuoteController {
                                 "Error while creating SP readAllQuote()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = facade.getResult(BusinessTypeEnum.QUOTE,

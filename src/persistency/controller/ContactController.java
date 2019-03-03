@@ -8,6 +8,7 @@ import model.BusinessTypeEnum;
 import model.Contact;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -136,8 +137,9 @@ public class ContactController {
                 ContactController.prepareContact(contact, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(contact);
-                e.printStackTrace();
+                //  System.err.print(contact);
+                Logger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -164,8 +166,9 @@ public class ContactController {
                 ContactController.prepareContact(contact, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(contact);
-                e.printStackTrace();
+                //  System.err.print(contact);
+                Logger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -258,7 +261,9 @@ public class ContactController {
                                 "Error while creating SP readAllContact()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                //  System.err.print(contact);
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                //e.printStackTrace();
             }
         }
         list = facade.getResult(BusinessTypeEnum.CONTACT,

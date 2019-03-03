@@ -6,6 +6,7 @@ package persistency.controller;
 import model.*;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 import utilities.FixTypes;
 import utilities.*;
 
@@ -225,8 +226,8 @@ public class InvoiceController {
                 InvoiceController.prepareInvoice(invoice, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(invoice);
-                e.printStackTrace();
+                // System.err.print(invoice);
+                Logger.getLogger().logMsg(String.format(callableStatement + invoice.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -247,8 +248,8 @@ public class InvoiceController {
                 InvoiceController.prepareInvoice(invoice, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(invoice);
-                e.printStackTrace();
+                //   System.err.print(invoice);
+                Logger.getLogger().logMsg(String.format(callableStatement + invoice.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -286,7 +287,7 @@ public class InvoiceController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),
@@ -357,7 +358,7 @@ public class InvoiceController {
                                 "Error while creating SP readAllInvoice()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = facade.getResult(BusinessTypeEnum.INVOICE,
@@ -449,7 +450,7 @@ public class InvoiceController {
                     .getCodeDet());
             dueDate.veranderDatum(deLay.intValue());
         } catch (DatumException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(String.format(callableStatement + customer.toString()));
         }
 
         String invoiceID = NumberController.readLastNumber(

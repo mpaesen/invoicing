@@ -10,6 +10,7 @@ import model.BusinessTypeEnum;
 import model.Price;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -52,7 +53,7 @@ public class PriceController {
                 }
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.PRICE,
@@ -99,7 +100,7 @@ public class PriceController {
                         throw new Exception("Parameter" + i + " not vallid");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         return facade.removeBusinessObject(callableStatement.toString(), args,
@@ -122,7 +123,7 @@ public class PriceController {
             always.setDatum(31, 11, 2999);
             priceList = getAllValidProductPrice(id, always);
         } catch (DatumException e) {
-            e.printStackTrace();
+            Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
         }
         return priceList;
     }
@@ -156,7 +157,7 @@ public class PriceController {
                 }
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.PRICE,
@@ -252,8 +253,8 @@ public class PriceController {
             try {
                 PriceController.preparePrice(price, args, argsType, argsIO, i);
             } catch (Exception e) {
-                System.err.print(price);
-                e.printStackTrace();
+                // System.err.print(price);
+                Logger.getLogger().logMsg(String.format(callableStatement + price.toString()));
             }
         }
         return facade.createObject(callableStatement.toString(), args,
@@ -276,8 +277,8 @@ public class PriceController {
             try {
                 PriceController.preparePrice(price, args, argsType, argsIO, i);
             } catch (Exception e) {
-                System.err.print(price);
-                e.printStackTrace();
+                //System.err.print(price);
+                Logger.getLogger().logMsg(String.format(callableStatement + price.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -314,7 +315,7 @@ public class PriceController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),

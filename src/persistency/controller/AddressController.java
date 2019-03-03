@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package persistency.controller;
 
 import model.Address;
@@ -8,6 +6,7 @@ import model.Business;
 import model.BusinessTypeEnum;
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.Logger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -42,7 +41,8 @@ public class AddressController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                //e.printStackTrace();
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.ADDRESS,
@@ -245,8 +245,9 @@ public class AddressController {
                 AddressController.prepareAddress(address, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(address);
-                e.printStackTrace();
+//                System.err.print(address);
+                Logger.getLogger().logMsg(String.format(callableStatement + address.toString()));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -274,8 +275,9 @@ public class AddressController {
                 AddressController.prepareAddress(address, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                System.err.print(address);
-                e.printStackTrace();
+//                System.err.print(address);
+                Logger.getLogger().logMsg(String.format(callableStatement + address.toString()));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -320,7 +322,9 @@ public class AddressController {
                                 "Error while creating SP removeAddress()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+//                System.err.print(address);
+                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
