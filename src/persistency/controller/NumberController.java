@@ -41,7 +41,7 @@ public class NumberController {
                 NumberController.prepareNumber(detail, args, argsType, argsIO,
                         i);
             } catch (Exception e) {
-                // System.err.print(detail);
+
                 BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
             }
         }
@@ -68,7 +68,7 @@ public class NumberController {
                 NumberController.prepareNumber(detail, args, argsType, argsIO,
                         i);
             } catch (Exception e) {
-                //System.err.print(detail);
+
                 BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
             }
         }
@@ -226,7 +226,8 @@ public class NumberController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
+
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.NUMBER,

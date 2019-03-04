@@ -141,7 +141,7 @@ public class InvoiceDetailController {
 
                 }
             } catch (Exception e) {
-                //  System.err.print(detail);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
@@ -164,7 +164,7 @@ public class InvoiceDetailController {
                 InvoiceDetailController.prepareDetail(detail, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                // System.err.print(detail);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
@@ -187,7 +187,7 @@ public class InvoiceDetailController {
                 InvoiceDetailController.prepareDetail(detail, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                //System.err.print(detail);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
@@ -217,7 +217,7 @@ public class InvoiceDetailController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
             }
         }
         list = (facade.getResult(BusinessTypeEnum.INVOICE_DETAIL,

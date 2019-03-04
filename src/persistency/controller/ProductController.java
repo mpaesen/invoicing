@@ -163,7 +163,7 @@ public class ProductController {
                 ProductController.prepareProduct(product, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                //System.err.print(product);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + product.toString()));
             }
         }

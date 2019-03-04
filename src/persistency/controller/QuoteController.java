@@ -44,7 +44,8 @@ public class QuoteController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
+
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.QUOTE,
@@ -326,7 +327,8 @@ public class QuoteController {
                                 "Error while creating SP readAllQuoteByCustomerName()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
+
             }
         }
         list = facade.getResult(BusinessTypeEnum.QUOTE_VIEW,
@@ -368,7 +370,8 @@ public class QuoteController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
+
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),
@@ -413,7 +416,8 @@ public class QuoteController {
                 }
 
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
+
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),

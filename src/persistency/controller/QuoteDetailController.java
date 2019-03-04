@@ -231,7 +231,7 @@ public class QuoteDetailController {
      * @param id
      * @return
      */
-    @SuppressWarnings("unchecked")
+
     public static QuoteDetail getOneQuoteDetail(String id, Integer line) {
         Collection<Business> list;
         int LENGTH = 2;

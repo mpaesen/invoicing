@@ -61,7 +61,6 @@ public class CodeController {
                                 "Error while creating SP readOneCodeDetail()");
                     } catch (Exception e) {
                         BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
-                        //e.printStackTrace();
                     }
             }
         }
@@ -185,9 +184,7 @@ public class CodeController {
             try {
                 CodeController.prepareCode(detail, args, argsType, argsIO, i);
             } catch (Exception e) {
-                //System.err.print(detail);
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
-                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -213,9 +210,7 @@ public class CodeController {
             try {
                 CodeController.prepareCode(detail, args, argsType, argsIO, i);
             } catch (Exception e) {
-                //System.err.print(detail);
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
-                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -278,9 +273,7 @@ public class CodeController {
                 }
 
             } catch (Exception e) {
-                //System.err.print(detail);
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + detail));
-                //e.printStackTrace();
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),

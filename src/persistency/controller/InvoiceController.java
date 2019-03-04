@@ -76,7 +76,7 @@ public class InvoiceController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(callableStatement.toString()));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.AMOUNT,
@@ -226,7 +226,6 @@ public class InvoiceController {
                 InvoiceController.prepareInvoice(invoice, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                // System.err.print(invoice);
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + invoice.toString()));
             }
         }
@@ -248,7 +247,7 @@ public class InvoiceController {
                 InvoiceController.prepareInvoice(invoice, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                //   System.err.print(invoice);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + invoice.toString()));
             }
         }

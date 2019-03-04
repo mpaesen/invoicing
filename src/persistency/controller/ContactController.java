@@ -137,9 +137,7 @@ public class ContactController {
                 ContactController.prepareContact(contact, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                //  System.err.print(contact);
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
-                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -166,9 +164,7 @@ public class ContactController {
                 ContactController.prepareContact(contact, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                //  System.err.print(contact);
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
-                //e.printStackTrace();
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -213,7 +209,7 @@ public class ContactController {
                                 "Error while creating SP removeContact()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.getLogger().logMsg(String.format(e.getMessage()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,

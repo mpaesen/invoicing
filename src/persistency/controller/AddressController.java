@@ -42,7 +42,6 @@ public class AddressController {
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
                 BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
-                //e.printStackTrace();
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.ADDRESS,
@@ -109,7 +108,7 @@ public class AddressController {
                                 "Error while creating SP readAllAddress()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.logMsg(e.getMessage());
             }
         }
         list = facade.getResult(BusinessTypeEnum.ADDRESS,
@@ -245,9 +244,9 @@ public class AddressController {
                 AddressController.prepareAddress(address, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-//                System.err.print(address);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + address.toString()));
-                //e.printStackTrace();
+
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -275,9 +274,9 @@ public class AddressController {
                 AddressController.prepareAddress(address, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-//                System.err.print(address);
+
                 BaseLogger.getLogger().logMsg(String.format(callableStatement + address.toString()));
-                //e.printStackTrace();
+
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -322,9 +321,9 @@ public class AddressController {
                                 "Error while creating SP removeAddress()");
                 }
             } catch (Exception e) {
-//                System.err.print(address);
+
                 BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
-                //e.printStackTrace();
+
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
