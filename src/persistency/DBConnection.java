@@ -7,8 +7,6 @@ import java.sql.*;
 import java.util.GregorianCalendar;
 import java.util.Properties;
 
-import static org.apache.log4j.lf5.LogLevel.CONFIG;
-
 public abstract class DBConnection {
     private static String docPath;
     private static String logLevel;
@@ -43,8 +41,6 @@ public abstract class DBConnection {
     }
 
     public CallableStatement getProcedure() {
-
-        BaseLogger.logMsg(procedure.toString(), CONFIG);
         return procedure;
     }
 
@@ -57,7 +53,7 @@ public abstract class DBConnection {
             try {
                 Class.forName(info.getProperty("driver"));
             } catch (final ClassNotFoundException e) {
-                BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+                BaseLogger.getLogger().logMsg(e.getMessage());
             }
             connection = DriverManager.getConnection(url, info);
         }
@@ -83,7 +79,7 @@ public abstract class DBConnection {
             }
             return procedure.executeQuery();
         } catch (final SQLException e) {
-            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(e.getMessage());
         }
         return null;
     }
@@ -93,7 +89,7 @@ public abstract class DBConnection {
             procedure = callProc(sql);
             return procedure.executeQuery();
         } catch (final SQLException e) {
-            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(e.getMessage());
         }
         return null;
     }
@@ -109,7 +105,7 @@ public abstract class DBConnection {
             success = procedure.execute();
             success = procedure.getBoolean(args.length);
         } catch (final SQLException e) {
-            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(e.getMessage());
         }
         return success;
     }
@@ -125,7 +121,7 @@ public abstract class DBConnection {
             success = procedure.execute();
             success = (args.length <= 0 || procedure.getBoolean(args.length));
         } catch (final SQLException e) {
-            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(e.getMessage());
         }
         return success;
     }

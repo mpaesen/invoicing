@@ -15,6 +15,16 @@ public class CodeDetail implements Business {
         this.active = active;
     }
 
+    @Override
+    public String toString() {
+        return "CodeDetail{" +
+                "idCode='" + idCode + '\'' +
+                ", codeDet='" + codeDet + '\'' +
+                ", codeDesc='" + codeDesc + '\'' +
+                ", active=" + active +
+                '}';
+    }
+
     public CodeDetail(CodeDetail code) {
         super();
         this.idCode = code.idCode;

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static org.apache.log4j.lf5.LogLevel.CONFIG;
+
 public class DBFacade {
     private static DBConnection connection;
     private ResultSet resultSet;
@@ -25,7 +27,7 @@ public class DBFacade {
     public Collection<Business> getResult(BusinessTypeEnum business,
                                           String sql, Object[] args, int[] argTypes, ArgIO[] argsIO) {
         List<Business> list = new ArrayList<Business>();
-        // TableMetaDataProps properties = new TableMetaDataProps();
+
         Business object = null;
 
         try {
@@ -37,7 +39,6 @@ public class DBFacade {
             }
         } catch (SQLException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
 
         return list;
@@ -45,19 +46,19 @@ public class DBFacade {
 
     public Collection<Business> getResult(BusinessTypeEnum business, String sql) {
         List<Business> list = new ArrayList<Business>();
-        // TableMetaDataProps properties = new TableMetaDataProps();
+
         Business object = null;
 
         try {
             resultSet = connection.getResultset(sql);
-            // ResultSetMetaData rsmd = resultSet.getMetaData();
+
             while (resultSet.next()) {
                 object = createBusinessObject(business, resultSet);
                 list.add(object);
             }
         } catch (SQLException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
 
         return list;
@@ -92,7 +93,7 @@ public class DBFacade {
             object = createBusinessObject(business, result, object);
         } catch (SQLException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
         return object;
     }
@@ -152,7 +153,7 @@ public class DBFacade {
                             result.getBigDecimal(4), result.getString(5),
                             result.getBoolean(6));
                 } catch (DatumException e) {
-                    e.printStackTrace();
+                    BaseLogger.logMsg(e.getMessage());
                 }
                 break;
             }// Price
@@ -167,7 +168,7 @@ public class DBFacade {
                             result.getString(10), result.getBoolean(11),
                             result.getString(12), result.getBoolean(13));
                 } catch (DatumException e) {
-                    e.printStackTrace();
+                    BaseLogger.logMsg(e.getMessage());
                 }
                 break;
             }// Quote
@@ -190,7 +191,7 @@ public class DBFacade {
                             result.getString(12), result.getBoolean(13),
                             result.getString(14), result.getBoolean(15));
                 } catch (DatumException e) {
-                    e.printStackTrace();
+                    BaseLogger.logMsg(e.getMessage());
                 }
                 break;
             }// Invoice
@@ -232,7 +233,7 @@ public class DBFacade {
                             result.getBoolean(15)), result.getString(1),
                             result.getString(2));
                 } catch (DatumException e) {
-                    e.printStackTrace();
+                    BaseLogger.logMsg(e.getMessage());
                 }
                 break;
             }// QuoteView
@@ -252,7 +253,7 @@ public class DBFacade {
                             result.getString(1), result.getString(2),
                             result.getString(3));
                 } catch (DatumException e) {
-                    e.printStackTrace();
+                    BaseLogger.logMsg(e.getMessage());
                 }
                 break;
             }// QuoteView
@@ -260,7 +261,7 @@ public class DBFacade {
                 try {
                     object = new Amount(result.getBigDecimal(1));
                 } catch (NumberFormatException e) {
-                    e.printStackTrace();
+                    BaseLogger.logMsg(e.getMessage());
                 }
                 break;
             }
@@ -269,6 +270,7 @@ public class DBFacade {
             }
 
         }
+        BaseLogger.logMsg(object.toString(), CONFIG);
         return object;
     }
 
