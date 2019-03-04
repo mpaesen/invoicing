@@ -7,7 +7,8 @@ import model.test.DummyFactory;
 import persistency.ArgIO;
 import persistency.DBFacade;
 import persistency.controller.NumberController;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
+
 
 public class TestDummyNumber extends TestCase {
     private DBFacade facade;
@@ -34,7 +35,7 @@ public class TestDummyNumber extends TestCase {
                         i);
             } catch (Exception e) {
                 //System.err.print(number);
-                Logger.getLogger().logMsg(String.valueOf(number));
+                BaseLogger.getLogger().logMsg(String.valueOf(number));
                 //e.printStackTrace();
             }
         }

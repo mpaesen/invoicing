@@ -9,7 +9,7 @@ import model.Invoice;
 import model.InvoiceDetail;
 import model.Price;
 import persistency.controller.*;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.*;
 
 import javax.swing.*;
@@ -94,7 +94,7 @@ public class JDialogInvoiceDetail extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }

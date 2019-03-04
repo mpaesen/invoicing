@@ -9,7 +9,7 @@ import model.Customer;
 import persistency.controller.CodeController;
 import persistency.controller.ContactController;
 import persistency.controller.NumberController;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.*;
 
 import javax.swing.*;
@@ -68,7 +68,7 @@ public class JDialogContact extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -334,7 +334,7 @@ public class JDialogContact extends JDialog {
                 }
             }
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         this.setModal(true);

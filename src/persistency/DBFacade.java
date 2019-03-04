@@ -2,7 +2,7 @@ package persistency;
 
 import model.Number;
 import model.*;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -36,7 +36,7 @@ public class DBFacade {
                 list.add(object);
             }
         } catch (SQLException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
 
@@ -56,7 +56,7 @@ public class DBFacade {
                 list.add(object);
             }
         } catch (SQLException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
 
@@ -91,7 +91,7 @@ public class DBFacade {
         try {
             object = createBusinessObject(business, result, object);
         } catch (SQLException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         return object;

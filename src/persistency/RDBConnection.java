@@ -1,6 +1,6 @@
 package persistency;
 
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Constants;
 import utilities.LoadProperties;
 
@@ -16,7 +16,7 @@ public class RDBConnection extends DBConnection {
         try {
             props = new LoadProperties(new File(Constants.SETTINGS_PATH + Constants.SETTINGS_FILE));
         } catch (final IOException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         setDocPath(props.getProperty(Constants.DOCUMENT_PATH));

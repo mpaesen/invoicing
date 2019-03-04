@@ -6,7 +6,7 @@ package persistency.controller;
 import model.*;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Figures;
 
 import java.math.BigDecimal;
@@ -142,7 +142,7 @@ public class InvoiceDetailController {
                 }
             } catch (Exception e) {
                 //  System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
         return (facade.removeBusinessObject(callableStatement.toString(), args,
@@ -165,7 +165,7 @@ public class InvoiceDetailController {
                         argsIO, i);
             } catch (Exception e) {
                 // System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -188,7 +188,7 @@ public class InvoiceDetailController {
                         argsIO, i);
             } catch (Exception e) {
                 //System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -259,7 +259,7 @@ public class InvoiceDetailController {
 
                 }
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = (facade.getResult(BusinessTypeEnum.INVOICE_DETAIL,
@@ -316,7 +316,7 @@ public class InvoiceDetailController {
                                 "Error while creating SP readAllInvoiceByProductId()");
                 }
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = facade.getResult(BusinessTypeEnum.INVOICE_DETAIL,

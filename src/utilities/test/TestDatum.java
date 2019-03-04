@@ -1,6 +1,6 @@
 package utilities.test;
 
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -34,10 +34,6 @@ public class TestDatum {
         Date test = new Date(new java.util.Date().getTime());
         test.setDatum(10, 0, 2012);
         Date test2 = new Date(test.getTimeInMilliSeconds());
-        //   System.out.printf("%s %s", test, test2);
-        Logger.getLogger().logMsg(String.format(test.toString(), test2.toString()));
-        //e.printStackTrace();
-
-
+        BaseLogger.getLogger().logMsg(String.format(test.toString(), test2.toString()));
     }
 }

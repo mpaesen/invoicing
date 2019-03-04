@@ -3,7 +3,7 @@ package view;
 import info.clearthought.layout.TableLayout;
 import model.CodeDetail;
 import persistency.controller.CodeController;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.CRUDOperationEnum;
 import utilities.Constants;
 
@@ -52,7 +52,7 @@ public class JDialogCode extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -82,7 +82,7 @@ public class JDialogCode extends JDialog {
             this.setLocationRelativeTo(parent);
             this.setVisible(true);
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }

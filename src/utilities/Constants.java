@@ -1,14 +1,12 @@
 package utilities;
 
-import org.apache.log4j.Logger;
-
 /**
  * @author bematpae
  *
  */
 public interface Constants {
-    Logger logger = Logger.getLogger(Constants.class);
-    String LOG_LEVEL = "**logger.registeredLevel**";
+    //Logger logger = BaseLogger.getLogger(Constants.class);
+    String LOG_LEVEL = "**BaseLogger.registeredLevel**";
     String SEPARATOR_SLASH = "/";
     String QUOTES_EXIST = " werd reeds verkocht, kan niet verwijderd worden!";
     String INVOICES_EXIST = " heeft reeds facturen, kan niet verwijderd worden!";
@@ -80,7 +78,7 @@ public interface Constants {
     String DOCUMENT_PATH = "documentPath";
     String SETTINGS_PATH = "resources/config/";
     String LOGGING_DETAIL_PATH = "/log/";
-    String LOGGER_FILE = "Logger.properties";
+    String LOGGER_FILE = "BaseLogger.properties";
     String SETTINGS_FILE = "settings.properties";
     String IMG_RESOURCE = "resources/img/%s.bmp";
     String EXTENTION = ".pdf";

@@ -9,7 +9,7 @@ import persistency.RDBConnection;
 import persistency.controller.AddressController;
 import persistency.controller.CodeController;
 import persistency.controller.CustomerController;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Constants;
 import utilities.Figures;
 import utilities.FixTypes;
@@ -90,13 +90,13 @@ public abstract class DocumentOutput {
             table.addCell(cell);
 
         } catch (final BadElementException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         } catch (final MalformedURLException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         } catch (final IOException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
 

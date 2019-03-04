@@ -8,7 +8,7 @@ import model.BusinessTypeEnum;
 import model.Contact;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -138,7 +138,7 @@ public class ContactController {
                         argsIO, i);
             } catch (Exception e) {
                 //  System.err.print(contact);
-                Logger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
                 //e.printStackTrace();
             }
         }
@@ -167,7 +167,7 @@ public class ContactController {
                         argsIO, i);
             } catch (Exception e) {
                 //  System.err.print(contact);
-                Logger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + contact.toString()));
                 //e.printStackTrace();
             }
         }
@@ -262,7 +262,7 @@ public class ContactController {
                 }
             } catch (Exception e) {
                 //  System.err.print(contact);
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
                 //e.printStackTrace();
             }
         }

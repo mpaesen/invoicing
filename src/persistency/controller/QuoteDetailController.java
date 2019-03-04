@@ -8,7 +8,7 @@ import model.BusinessTypeEnum;
 import model.QuoteDetail;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -117,7 +117,7 @@ public class QuoteDetailController {
                 QuoteDetailController.prepareDetail(detail, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -145,7 +145,7 @@ public class QuoteDetailController {
                 QuoteDetailController.prepareDetail(detail, args, argsType,
                         argsIO, i);
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -190,7 +190,7 @@ public class QuoteDetailController {
 
                 }
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
             }
         }
         return (facade.removeBusinessObject(callableStatement.toString(), args,
@@ -219,7 +219,7 @@ public class QuoteDetailController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = (facade.getResult(BusinessTypeEnum.QUOTE_DETAIL,
@@ -262,7 +262,7 @@ public class QuoteDetailController {
 
                 }
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = (facade.getResult(BusinessTypeEnum.QUOTE_DETAIL,
@@ -319,7 +319,7 @@ public class QuoteDetailController {
                                 "Error while creating SP readAllQuoteByProductId()");
                 }
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         list = facade.getResult(BusinessTypeEnum.QUOTE_DETAIL,

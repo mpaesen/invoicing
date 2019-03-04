@@ -8,7 +8,7 @@ import model.BusinessTypeEnum;
 import model.Number;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -42,7 +42,7 @@ public class NumberController {
                         i);
             } catch (Exception e) {
                 // System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -69,7 +69,7 @@ public class NumberController {
                         i);
             } catch (Exception e) {
                 //System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement) + detail.toString()));
             }
         }
         return (facade.createObject(callableStatement.toString(), args,
@@ -114,7 +114,7 @@ public class NumberController {
                 }
 
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.NUMBER,
@@ -278,7 +278,7 @@ public class NumberController {
                 }
 
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
             }
         }
         success = facade.removeBusinessObject(callableStatement.toString(),

@@ -4,7 +4,7 @@ import com.toedter.calendar.JDateChooser;
 import model.Number;
 import model.*;
 import persistency.controller.*;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.FixTypes;
 import utilities.*;
 
@@ -134,7 +134,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (final Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -144,7 +144,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
         try {
             toDay = new Date();
         } catch (final DatumException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         // initGUI();
@@ -197,7 +197,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
 
         } catch (final Exception e) {
             // add your error handling code here
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }

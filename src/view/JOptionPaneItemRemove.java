@@ -1,6 +1,6 @@
 package view;
 
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import javax.swing.*;
 
@@ -29,7 +29,7 @@ public class JOptionPaneItemRemove extends JOptionPane {
                 setDefaultLocale(new java.util.Locale("nl", "BE"));
             }
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }

@@ -9,7 +9,7 @@ import model.Business;
 import model.Contact;
 import model.Customer;
 import persistency.controller.*;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.CRUDOperationEnum;
 import utilities.CodeEnum;
 import utilities.Constants;
@@ -119,7 +119,7 @@ public class JDialogCustomer extends JDialog {
         try {
             javax.swing.UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (final Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -205,7 +205,7 @@ public class JDialogCustomer extends JDialog {
             this.setModal(true);
             this.setVisible(true);
         } catch (final Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }

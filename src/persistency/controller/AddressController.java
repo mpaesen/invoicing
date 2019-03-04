@@ -6,7 +6,7 @@ import model.Business;
 import model.BusinessTypeEnum;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -41,7 +41,7 @@ public class AddressController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
                 //e.printStackTrace();
             }
         }
@@ -246,7 +246,7 @@ public class AddressController {
                         argsIO, i);
             } catch (Exception e) {
 //                System.err.print(address);
-                Logger.getLogger().logMsg(String.format(callableStatement + address.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + address.toString()));
                 //e.printStackTrace();
             }
         }
@@ -276,7 +276,7 @@ public class AddressController {
                         argsIO, i);
             } catch (Exception e) {
 //                System.err.print(address);
-                Logger.getLogger().logMsg(String.format(callableStatement + address.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + address.toString()));
                 //e.printStackTrace();
             }
         }
@@ -323,7 +323,7 @@ public class AddressController {
                 }
             } catch (Exception e) {
 //                System.err.print(address);
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
                 //e.printStackTrace();
             }
         }

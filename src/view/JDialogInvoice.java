@@ -6,7 +6,7 @@ import model.*;
 import output.InvoiceOutput;
 import persistency.RDBConnection;
 import persistency.controller.*;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.Figures;
 import utilities.FixTypes;
@@ -109,7 +109,7 @@ public class JDialogInvoice extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -139,7 +139,7 @@ public class JDialogInvoice extends JDialog {
         try {
             this.toDay = new Date();
         } catch (DatumException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         this.parent = frame;
@@ -177,7 +177,7 @@ public class JDialogInvoice extends JDialog {
                 this.setVisible(true);
             }
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -1070,7 +1070,7 @@ public class JDialogInvoice extends JDialog {
                     Calendar.MONTH), getInvDueDateChooser().getCalendar().get(
                     Calendar.YEAR));
         } catch (DatumException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         return dueDate;
@@ -1088,7 +1088,7 @@ public class JDialogInvoice extends JDialog {
                     getInvDateChooser().getCalendar().get(Calendar.MONTH),
                     getInvDateChooser().getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         return invoiceDate;

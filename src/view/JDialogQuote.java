@@ -6,7 +6,7 @@ import model.*;
 import output.QuoteOutput;
 import persistency.RDBConnection;
 import persistency.controller.*;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.Figures;
 import utilities.FixTypes;
@@ -96,7 +96,7 @@ public class JDialogQuote extends JDialog {
             javax.swing.UIManager
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -127,7 +127,7 @@ public class JDialogQuote extends JDialog {
         try {
             this.toDay = new Date();
         } catch (DatumException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
         this.parent = frame;
@@ -163,7 +163,7 @@ public class JDialogQuote extends JDialog {
                 this.setVisible(true);
             }
         } catch (Exception e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }
@@ -958,7 +958,6 @@ public class JDialogQuote extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Quote updateExistingQuote(String status) {
@@ -982,7 +981,6 @@ public class JDialogQuote extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Quote createNewQuote() {

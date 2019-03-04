@@ -1,5 +1,7 @@
 package persistency.logging;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.lf5.LogLevel;
 import org.jetbrains.annotations.NotNull;
 import utilities.Constants;
 import utilities.CreateDirectory;
@@ -12,12 +14,15 @@ import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
+import static org.apache.log4j.lf5.LogLevel.FATAL;
 
-public class Logger {
-    private static Logger logger;
+
+public class BaseLogger {
+    private static BaseLogger logger;
+    private static Logger jLogger;
     private LoadProperties properties;
 
-    private Logger() {
+    private BaseLogger() {
         logger = this;
     }
 
@@ -25,10 +30,10 @@ public class Logger {
      * this method initializes the logger, creates an object
      */
     public static void initialize() {
-        logger = new Logger();
+        logger = new BaseLogger();
     }
 
-    public static Logger getLogger() {
+    public static BaseLogger getLogger() {
         if (logger == null) {
             initialize();
         }
@@ -40,18 +45,12 @@ public class Logger {
      *
      * @RETURN level, int
      */
-    public int getRegisteredLevel() {
-        int i = 0;
+    public LogLevel getRegisteredLevel() {
+        LogLevel i = FATAL;
         try {
             properties = new LoadProperties(new File(Constants.SETTINGS_PATH
                     + Constants.LOGGER_FILE));
-            //InputStream inputstream = Logger.class.getResourceAsStream("Logger.properties");
-            //properties.load(inputstream);
-            //properties.close();
-            i = Integer.parseInt(properties.getProperty(Constants.LOG_LEVEL));
-            if (i < 0 || i > 3)
-                i = 0;
-
+            i = new LogLevel(properties.getProperty(Constants.LOG_LEVEL), 0);
         } catch (Exception e) {
             System.err.println("Logger: Failed in the getRegisteredLevel method");
             e.printStackTrace();
@@ -67,15 +66,12 @@ public class Logger {
      */
     private String getFileName(@NotNull GregorianCalendar gc) {
         StringBuilder logPath = new StringBuilder();
+        logPath.append(System.getProperty(Constants.DOCUMENT_ROOT));
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd");
         String dateString = dateFormat.format(gc.getTime());
         String fileName = "/ExceptionLog-" + dateString + ".txt";
 
-        logPath.append(System.getProperty(Constants.LOGGING_DETAIL_PATH)); // get
-        // Document
-        // Root
-        //logPath.append(DBConnection.getDocPath());
         logPath.append(Constants.LOGGING_DETAIL_PATH);
 
         CreateDirectory.run(logPath.toString());
@@ -90,16 +86,31 @@ public class Logger {
      * @param message String
      */
     public void logMsg(String message) {
-        try {
-            GregorianCalendar gc = new GregorianCalendar();
-            String fileName = getFileName(gc);
-            FileOutputStream fos = new FileOutputStream(fileName, true);
-            PrintStream ps = new PrintStream(fos);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM, d, yyyy 'at' hh:mm:ss a");
-            ps.println("<" + dateFormat.format(gc.getTime()) + ">[" + message + "]");
-            ps.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        logMsg(message, getRegisteredLevel());
+    }
+
+    /**
+     * a mechanism to log messsages to th file
+     *
+     * @param message String, LogLevel
+     */
+    public void logMsg(String message, LogLevel requestedLevel) {
+        String registeredLevelLabel = getRegisteredLevel().toString();
+        if (getRegisteredLevel().encompasses(requestedLevel)) {
+            try {
+                GregorianCalendar gc = new GregorianCalendar();
+                String fileName = getFileName(gc);
+                FileOutputStream fos = new FileOutputStream(fileName, true);
+                PrintStream ps = new PrintStream(fos);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM, d, yyyy 'at' hh:mm:ss a");
+
+                message += " ** " + registeredLevelLabel + " **";
+                ps.println("<" + dateFormat.format(gc.getTime()) + ">[" + message + "]");
+
+                ps.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

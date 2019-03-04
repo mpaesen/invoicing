@@ -8,7 +8,7 @@ import model.BusinessTypeEnum;
 import model.CodeDetail;
 import persistency.ArgIO;
 import persistency.DBFacade;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -60,7 +60,7 @@ public class CodeController {
                         throw new Exception(
                                 "Error while creating SP readOneCodeDetail()");
                     } catch (Exception e) {
-                        Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                        BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
                         //e.printStackTrace();
                     }
             }
@@ -99,7 +99,7 @@ public class CodeController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
                 //e.printStackTrace();
             }
         }
@@ -186,7 +186,7 @@ public class CodeController {
                 CodeController.prepareCode(detail, args, argsType, argsIO, i);
             } catch (Exception e) {
                 //System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
                 //e.printStackTrace();
             }
         }
@@ -214,7 +214,7 @@ public class CodeController {
                 CodeController.prepareCode(detail, args, argsType, argsIO, i);
             } catch (Exception e) {
                 //System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail.toString()));
                 //e.printStackTrace();
             }
         }
@@ -279,7 +279,7 @@ public class CodeController {
 
             } catch (Exception e) {
                 //System.err.print(detail);
-                Logger.getLogger().logMsg(String.format(callableStatement + detail));
+                BaseLogger.getLogger().logMsg(String.format(callableStatement + detail));
                 //e.printStackTrace();
             }
         }

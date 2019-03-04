@@ -12,7 +12,7 @@ import persistency.controller.CustomerController;
 import persistency.controller.ProductController;
 import persistency.controller.QuoteController;
 import persistency.controller.QuoteDetailController;
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 import utilities.Constants;
 import utilities.CreateDirectory;
 import utilities.Figures;
@@ -182,10 +182,10 @@ public class QuoteOutput extends DocumentOutput {
             setCustomer(CustomerController.getCustomer(quote.getQteCusid()));
             createPdf(strManyDirectories + PREFIX + Constants.SEPARATOR_FLAT + quote.getIdQuote() + Constants.SEPARATOR_FLAT + getCustomer().getCusName() + Constants.EXTENTION);
         } catch (final IOException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         } catch (final DocumentException e) {
-            Logger.getLogger().logMsg(e.getMessage());
+            BaseLogger.getLogger().logMsg(e.getMessage());
             //e.printStackTrace();
         }
     }

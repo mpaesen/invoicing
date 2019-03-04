@@ -1,6 +1,6 @@
 package persistency;
 
-import persistency.logging.Logger;
+import persistency.logging.BaseLogger;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -53,7 +53,7 @@ public abstract class DBConnection {
             try {
                 Class.forName(info.getProperty("driver"));
             } catch (final ClassNotFoundException e) {
-                Logger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+                BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
             }
             connection = DriverManager.getConnection(url, info);
         }
@@ -79,7 +79,7 @@ public abstract class DBConnection {
             }
             return procedure.executeQuery();
         } catch (final SQLException e) {
-            Logger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
         }
         return null;
     }
@@ -89,7 +89,7 @@ public abstract class DBConnection {
             procedure = callProc(sql);
             return procedure.executeQuery();
         } catch (final SQLException e) {
-            Logger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
         }
         return null;
     }
@@ -105,7 +105,7 @@ public abstract class DBConnection {
             success = procedure.execute();
             success = procedure.getBoolean(args.length);
         } catch (final SQLException e) {
-            Logger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
         }
         return success;
     }
@@ -121,7 +121,7 @@ public abstract class DBConnection {
             success = procedure.execute();
             success = (args.length <= 0 || procedure.getBoolean(args.length));
         } catch (final SQLException e) {
-            Logger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
         }
         return success;
     }
@@ -194,7 +194,7 @@ public abstract class DBConnection {
                 }
             }
         } catch (final SQLException e) {
-            Logger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
+            BaseLogger.getLogger().logMsg(String.format(String.valueOf(e.getMessage())));
         }
     }
 }
