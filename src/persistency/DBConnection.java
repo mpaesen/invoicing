@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.GregorianCalendar;
 import java.util.Properties;
 
+import static org.apache.log4j.lf5.LogLevel.CONFIG;
+
 public abstract class DBConnection {
     private static String docPath;
     private static String logLevel;
@@ -41,6 +43,8 @@ public abstract class DBConnection {
     }
 
     public CallableStatement getProcedure() {
+
+        BaseLogger.logMsg(procedure.toString(), CONFIG);
         return procedure;
     }
 

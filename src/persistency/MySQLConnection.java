@@ -1,5 +1,6 @@
 package persistency;
 
+import persistency.logging.BaseLogger;
 import utilities.Constants;
 import utilities.LoadProperties;
 
@@ -16,7 +17,7 @@ public class MySQLConnection extends DBConnection {
             props = new LoadProperties(new File(Constants.SETTINGS_PATH
                     + Constants.SETTINGS_FILE));
         } catch (IOException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         setUrl(props.getProperty(Constants.URL));
         Properties info = new Properties();
