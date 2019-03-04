@@ -14,13 +14,14 @@ import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
-import static org.apache.log4j.lf5.LogLevel.FATAL;
+import static org.apache.log4j.lf5.LogLevel.*;
 
 
 public class BaseLogger {
     private static BaseLogger logger;
     private static Logger jLogger;
-    private LoadProperties properties;
+    private static LogLevel baseLogLevel;
+    private static LoadProperties properties;
 
     private BaseLogger() {
         logger = this;
@@ -45,17 +46,54 @@ public class BaseLogger {
      *
      * @RETURN level, int
      */
-    public LogLevel getRegisteredLevel() {
-        LogLevel i = FATAL;
-        try {
-            properties = new LoadProperties(new File(Constants.SETTINGS_PATH
-                    + Constants.LOGGER_FILE));
-            i = new LogLevel(properties.getProperty(Constants.LOG_LEVEL), 0);
-        } catch (Exception e) {
-            System.err.println("Logger: Failed in the getRegisteredLevel method");
-            e.printStackTrace();
+    public static LogLevel getRegisteredLevel() {
+        String baseLogLevelLabel;
+        if (baseLogLevel == null) {
+            try {
+                properties = new LoadProperties(new File(Constants.SETTINGS_PATH
+                        + Constants.LOGGER_FILE));
+                baseLogLevelLabel = properties.getProperty(Constants.LOG_LEVEL);
+                switch (baseLogLevelLabel) {
+                    case "ERROR":
+                        baseLogLevel = ERROR;
+                        break;
+                    case "WARN":
+                        baseLogLevel = WARNING;
+                        break;
+                    case "INFO":
+                        baseLogLevel = INFO;
+                        break;
+                    case "DEBUG":
+                        baseLogLevel = DEBUG;
+                        break;
+                    case "SEVERE":
+                        baseLogLevel = SEVERE;
+                        break;
+                    case "WARNING":
+                        baseLogLevel = WARNING;
+                        break;
+                    case "CONFIG":
+                        baseLogLevel = CONFIG;
+                        break;
+                    case "FINE":
+                        baseLogLevel = FINE;
+                        break;
+                    case "FINER":
+                        baseLogLevel = FINER;
+                        break;
+                    case "FINEST":
+                        baseLogLevel = FINEST;
+                        break;
+                    default:
+                        baseLogLevel = FATAL;
+                }
+
+            } catch (Exception e) {
+                System.err.println("Logger: Failed in the getRegisteredLevel method");
+                e.printStackTrace();
+            }
         }
-        return i;
+        return baseLogLevel;
     }
 
     /**
@@ -64,7 +102,7 @@ public class BaseLogger {
      * @param gc GregorianCalender
      * @return String name of file
      */
-    private String getFileName(@NotNull GregorianCalendar gc) {
+    private static String getFileName(@NotNull GregorianCalendar gc) {
         StringBuilder logPath = new StringBuilder();
         logPath.append(System.getProperty(Constants.DOCUMENT_ROOT));
 
@@ -85,7 +123,7 @@ public class BaseLogger {
      *
      * @param message String
      */
-    public void logMsg(String message) {
+    public static void logMsg(String message) {
         logMsg(message, getRegisteredLevel());
     }
 
@@ -94,8 +132,8 @@ public class BaseLogger {
      *
      * @param message String, LogLevel
      */
-    public void logMsg(String message, LogLevel requestedLevel) {
-        String registeredLevelLabel = getRegisteredLevel().toString();
+    public static void logMsg(String message, final LogLevel requestedLevel) {
+        String requestedLevelLabel = requestedLevel.toString();
         if (getRegisteredLevel().encompasses(requestedLevel)) {
             try {
                 GregorianCalendar gc = new GregorianCalendar();
@@ -104,7 +142,7 @@ public class BaseLogger {
                 PrintStream ps = new PrintStream(fos);
                 SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM, d, yyyy 'at' hh:mm:ss a");
 
-                message += " ** " + registeredLevelLabel + " **";
+                message += " ** " + requestedLevelLabel + " **";
                 ps.println("<" + dateFormat.format(gc.getTime()) + ">[" + message + "]");
 
                 ps.close();
