@@ -14,6 +14,9 @@ package utilities;
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
 
+import org.apache.log4j.lf5.LogLevel;
+import persistency.logging.BaseLogger;
+
 import java.io.*;
 import java.util.Enumeration;
 import java.util.Properties;
@@ -28,17 +31,18 @@ public class LoadProperties {
 
     public static LoadProperties getPropertiesFile(String file) {
         LoadProperties sp = null;
+        File f;
         try {
-            File f = new File(file);
+            f = new File(file);
             if (f.exists()) {
                 sp = new LoadProperties(f);
             } else {
                 System.err.println("File " + f + " does not exist!");
+                BaseLogger.logMsg("File " + f + " does not exist!", LogLevel.DEBUG);
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-
+            BaseLogger.logMsg("File " + file + " does not exist!");
         }
         return sp;
 

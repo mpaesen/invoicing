@@ -259,7 +259,6 @@ public class ContactController {
             } catch (Exception e) {
                 //  System.err.print(contact);
                 BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
-                //e.printStackTrace();
             }
         }
         list = facade.getResult(BusinessTypeEnum.CONTACT,
@@ -288,7 +287,7 @@ public class ContactController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.logMsg(e.getMessage());
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.CONTACT,

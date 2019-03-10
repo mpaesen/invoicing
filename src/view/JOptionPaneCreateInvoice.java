@@ -31,7 +31,6 @@ public class JOptionPaneCreateInvoice extends JOptionPane {
             }
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 

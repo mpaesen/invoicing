@@ -1,5 +1,8 @@
 package utilities;
 
+import org.apache.log4j.lf5.LogLevel;
+import persistency.logging.BaseLogger;
+
 import java.io.File;
 
 public class CreateDirectory {
@@ -11,10 +14,13 @@ public class CreateDirectory {
             if (success) {
                 System.out.println("Directories: " + strManyDirectories
                         + " created");
+                BaseLogger.logMsg("Directories: " + strManyDirectories
+                                + " created",
+                        LogLevel.DEBUG);
             }
 
         } catch (Exception e) {// Catch exception if any
-            System.err.println("Error: " + e.getMessage());
+            BaseLogger.logMsg(e.getMessage());
         }
     }
 }

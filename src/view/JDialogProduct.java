@@ -80,7 +80,6 @@ public class JDialogProduct extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 
@@ -103,7 +102,7 @@ public class JDialogProduct extends JDialog {
         try {
             this.toDay = new Date();
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         this.parent = frame;
     }
@@ -121,7 +120,6 @@ public class JDialogProduct extends JDialog {
             this.setVisible(true);
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 

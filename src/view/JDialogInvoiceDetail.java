@@ -95,7 +95,7 @@ public class JDialogInvoiceDetail extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -347,7 +347,7 @@ public class JDialogInvoiceDetail extends JDialog {
         try {
             price = new BigDecimal(jTextFieldProductPrice.getText());
         } catch (NumberFormatException ex) {
-            ex.printStackTrace();
+            BaseLogger.logMsg(ex.getMessage());
         }
         return price;
 
@@ -390,14 +390,14 @@ public class JDialogInvoiceDetail extends JDialog {
         } catch (NumberFormatException ex) {
             errorMessages.append(Constants.QTY_NO_FIGURES + "\n");
         } catch (Exception ex) {
-            ex.printStackTrace();
+            BaseLogger.logMsg(ex.getMessage());
         }
         try {
             price = new BigDecimal(jTextFieldProductPrice.getText());
         } catch (NumberFormatException ex) {
             errorMessages.append(Constants.PRICE_NO_FIGURES + "\n");
         } catch (Exception ex) {
-            ex.printStackTrace();
+            BaseLogger.logMsg(ex.getMessage());
         }
         if (jComboBoxProduct.getSelectedItem() == null) {
             errorMessages.append(Constants.NO_PRODUCT + "\n");

@@ -67,7 +67,7 @@ public class JDialogAddress extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -340,7 +340,6 @@ public class JDialogAddress extends JDialog {
             }
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
         this.setModal(true);
         this.setLocationByPlatform(true);

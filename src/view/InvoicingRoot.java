@@ -135,7 +135,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (final Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -145,7 +145,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
             toDay = new Date();
         } catch (final DatumException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
         // initGUI();
     }
@@ -198,7 +198,7 @@ public class InvoicingRoot extends javax.swing.JFrame {
         } catch (final Exception e) {
             // add your error handling code here
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 

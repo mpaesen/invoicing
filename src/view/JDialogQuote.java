@@ -97,7 +97,6 @@ public class JDialogQuote extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 
@@ -128,7 +127,6 @@ public class JDialogQuote extends JDialog {
             this.toDay = new Date();
         } catch (DatumException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
         this.parent = frame;
     }
@@ -164,7 +162,6 @@ public class JDialogQuote extends JDialog {
             }
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 
@@ -1018,7 +1015,7 @@ public class JDialogQuote extends JDialog {
                     reqDlvDate.getCalendar().get(Calendar.MONTH), reqDlvDate
                             .getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         return deliveryDate;
     }

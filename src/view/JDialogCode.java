@@ -53,7 +53,7 @@ public class JDialogCode extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -83,7 +83,7 @@ public class JDialogCode extends JDialog {
             this.setVisible(true);
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 

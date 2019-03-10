@@ -30,7 +30,6 @@ public class JOptionPaneItemRemove extends JOptionPane {
             }
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 

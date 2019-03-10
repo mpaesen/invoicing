@@ -61,7 +61,6 @@ public class JDialogPrice extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 
@@ -84,7 +83,6 @@ public class JDialogPrice extends JDialog {
             this.toDay = new Date();
         } catch (DatumException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
         this.parent = frame;
     }
@@ -101,7 +99,6 @@ public class JDialogPrice extends JDialog {
             this.setVisible(true);
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 

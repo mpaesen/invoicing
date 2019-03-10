@@ -127,7 +127,6 @@ public class TijdsInterval implements Comparable<TijdsInterval> {
     /**
      * Evalueert of 2 tijdsintervallen mekaar overlappen
      *
-     * @param Tijdsinterval
      * @return boolean
      */
     public boolean overlapt(TijdsInterval second) {

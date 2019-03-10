@@ -99,7 +99,6 @@ public class CodeController {
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
                 BaseLogger.getLogger().logMsg(String.format(String.valueOf(callableStatement)));
-                //e.printStackTrace();
             }
         }
         list = facade.getResult(BusinessTypeEnum.CODE_DETAIL,

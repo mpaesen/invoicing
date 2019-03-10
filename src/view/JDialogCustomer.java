@@ -8,6 +8,7 @@ import model.Address;
 import model.Business;
 import model.Contact;
 import model.Customer;
+import org.apache.log4j.lf5.LogLevel;
 import persistency.controller.*;
 import persistency.logging.BaseLogger;
 import utilities.CRUDOperationEnum;
@@ -120,7 +121,7 @@ public class JDialogCustomer extends JDialog {
             javax.swing.UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (final Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -206,7 +207,7 @@ public class JDialogCustomer extends JDialog {
             this.setVisible(true);
         } catch (final Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -291,7 +292,7 @@ public class JDialogCustomer extends JDialog {
                     errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");
                 }
             } catch (final Exception e) {
-                //e.printStackTrace();
+                BaseLogger.logMsg(e.getMessage(), LogLevel.DEBUG);
                 errorMessages.append(e.getMessage());
                 errorMessages.append(":\t");
                 errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");

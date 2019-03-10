@@ -1,5 +1,7 @@
 package utilities;
 
+import persistency.logging.BaseLogger;
+
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
@@ -21,7 +23,7 @@ public class DateCellRenderer extends JLabel implements TableCellRenderer {
             test = new Date(value.toString());
             // format: "dd-MM-yy"
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
 
         if (test.kleinerDan(toDay)) {

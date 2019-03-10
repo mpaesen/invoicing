@@ -110,7 +110,7 @@ public class JDialogInvoice extends JDialog {
                     .setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -140,7 +140,7 @@ public class JDialogInvoice extends JDialog {
             this.toDay = new Date();
         } catch (DatumException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
         this.parent = frame;
     }
@@ -178,7 +178,7 @@ public class JDialogInvoice extends JDialog {
             }
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 
@@ -1071,7 +1071,7 @@ public class JDialogInvoice extends JDialog {
                     Calendar.YEAR));
         } catch (DatumException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
         return dueDate;
     }
@@ -1089,7 +1089,7 @@ public class JDialogInvoice extends JDialog {
                     getInvDateChooser().getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
         return invoiceDate;
     }

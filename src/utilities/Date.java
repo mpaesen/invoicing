@@ -1,5 +1,8 @@
 package utilities;
 
+import org.apache.log4j.lf5.LogLevel;
+import persistency.logging.BaseLogger;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
@@ -197,6 +200,10 @@ public class Date implements Comparable<Date> {
             correct = false;
             System.err.println("[" + jaar + SEPARATOR + maand + SEPARATOR + dag
                     + "]" + e);
+            BaseLogger.logMsg("[" + jaar + SEPARATOR + maand + SEPARATOR + dag
+                    + "]" + e, LogLevel.DEBUG);
+
+
         }
         return correct;
     }
@@ -365,7 +372,7 @@ public class Date implements Comparable<Date> {
      * @return { 31, 28/29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
      */
     public int dagVanHetJaar() {
-        int dagen[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int[] dagen = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int totaal = 0;
         for (int maand = 0; maand < this.getMaand(); maand++) {
             // huidige maand nog niet meetellen

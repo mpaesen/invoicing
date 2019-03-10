@@ -2,11 +2,14 @@
 
 package persistency;
 
+import org.apache.log4j.lf5.LogLevel;
+import persistency.logging.BaseLogger;
+
 import java.sql.*;
 
 public class TableMetaDataProps {
-    private String columns[];
-    private String columnTypes[];
+    private String[] columns;
+    private String[] columnTypes;
     private Connection con;
 
     private PreparedStatement pstmt;
@@ -72,6 +75,8 @@ public class TableMetaDataProps {
 
         while (rs.next()) {
             System.out.print(recordDetails());
+            BaseLogger.logMsg(recordDetails(), LogLevel.DEBUG);
+
         }
 
     }
@@ -94,8 +99,8 @@ public class TableMetaDataProps {
             rs.close();
             pstmt.close();
             con.close();
-        } catch (SQLException e1) {
-            e1.printStackTrace();
+        } catch (SQLException ex) {
+            BaseLogger.logMsg(ex.getMessage());
         }
     }
 }

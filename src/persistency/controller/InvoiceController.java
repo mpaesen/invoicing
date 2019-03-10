@@ -40,7 +40,7 @@ public class InvoiceController {
                 argsType[i] = java.sql.Types.CHAR;
                 argsIO[i] = ArgIO.IN;
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.logMsg(e.getMessage());
             }
         }
         Collection<Business> list = facade.getResult(BusinessTypeEnum.INVOICE,
@@ -422,7 +422,7 @@ public class InvoiceController {
                                 "Error while creating SP readAllInvoiceByCustomer()");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                BaseLogger.logMsg(e.getMessage());
             }
         }
         list = facade.getResult(BusinessTypeEnum.INVOICE_VIEW,
@@ -487,7 +487,7 @@ public class InvoiceController {
                     .getCodeDet());
             dueDate.veranderDatum(deLay.intValue());
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
 
         String invoiceID = NumberController.readLastNumber(

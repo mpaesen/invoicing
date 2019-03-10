@@ -92,7 +92,6 @@ public class JWindowCustomer extends JDialog {
             }
         } catch (Exception e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
         }
     }
 
