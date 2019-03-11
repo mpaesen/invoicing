@@ -2,6 +2,7 @@ package utilities.test;
 
 import org.junit.Before;
 import org.junit.Test;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -163,7 +164,7 @@ public class DatumTest {
                 System.out.println(laatste);
             }
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
     }
 

@@ -3,6 +3,7 @@ package model.test;
 import model.Price;
 import model.QuoteDetail;
 import persistency.controller.PriceController;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -22,7 +23,7 @@ public class DummyQuoteDetail extends Dummy {
         try {
             prices = PriceController.getAllValidProductPrice(prodID, new Date());
         } catch (final DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         return new QuoteDetail(quoteID, // idQuote | char(15)
                 new Integer(++i), // qteDetLine | int(3,0)

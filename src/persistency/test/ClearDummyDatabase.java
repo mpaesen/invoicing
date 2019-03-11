@@ -2,6 +2,7 @@ package persistency.test;
 
 import persistency.ArgIO;
 import persistency.DBFacade;
+import persistency.logging.BaseLogger;
 
 public class ClearDummyDatabase {
 	private static DBFacade facade;
@@ -37,13 +38,13 @@ public class ClearDummyDatabase {
 				}
 
 			} catch (final Exception e) {
-				e.printStackTrace();
+                BaseLogger.logMsg(e.getMessage());
 			}
 		}
 		try {
 			success = facade.removeBusinessObject(callableStatement.toString(), args, argsType, argsIO);
 		} catch (final Exception e) {
-			e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
 		}
 		if (!success)
 			new Exception("Call emptyDatabase()").printStackTrace();

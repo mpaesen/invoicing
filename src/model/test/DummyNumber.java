@@ -1,6 +1,7 @@
 package model.test;
 
 import model.Number;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -18,7 +19,7 @@ public class DummyNumber extends Dummy {
             current = new Date();
             year = current.getJaar();
         } catch (final DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         return new Number(category[getRandom().nextInt(category.length)], // nbrCategory
                 // |

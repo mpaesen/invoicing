@@ -219,7 +219,7 @@ public class JDialogPrice extends JDialog {
     }
 
     /**
-     * @param deliveryDate
+
      * @return
      */
     private Price updateExistingPrice() {
@@ -231,7 +231,7 @@ public class JDialogPrice extends JDialog {
                     jDateFrom.getCalendar().get(Calendar.MONTH), jDateFrom
                     .getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         Price newPrice = new Price(price.getIdPrice(), product.getIdProd(),
                 dateFrom, new BigDecimal(jTextFieldPriUnit.getText()),
@@ -240,7 +240,6 @@ public class JDialogPrice extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Price createNewPrice() {
@@ -254,7 +253,7 @@ public class JDialogPrice extends JDialog {
                     jDateFrom.getCalendar().get(Calendar.MONTH), jDateFrom
                     .getCalendar().get(Calendar.YEAR));
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
 
         Price newPrice = new Price(priceID, product.getIdProd(), dateFrom,

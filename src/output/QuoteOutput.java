@@ -183,10 +183,10 @@ public class QuoteOutput extends DocumentOutput {
             createPdf(strManyDirectories + PREFIX + Constants.SEPARATOR_FLAT + quote.getIdQuote() + Constants.SEPARATOR_FLAT + getCustomer().getCusName() + Constants.EXTENTION);
         } catch (final IOException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         } catch (final DocumentException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
     }
 }

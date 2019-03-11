@@ -3,6 +3,7 @@ package model.test;
 import model.InvoiceDetail;
 import model.Price;
 import persistency.controller.PriceController;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class DummyInvoiceDetail extends Dummy {
     private static String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
-    private static String[] vat = {new String("0.0"), new String("6.0"), new String("12.0"), new String("21.0")};
+    private static String[] vat = {"0.0", "6.0", "12.0", "21.0"};
     private static int i;
 
     /**
@@ -23,7 +24,7 @@ public class DummyInvoiceDetail extends Dummy {
         try {
             prices = PriceController.getAllValidProductPrice(prodID, new Date());
         } catch (final DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         return new InvoiceDetail(InvoiceID, // idInvoice | char(15)
                 new Integer(++i), // qteDetLine | int(3,0)

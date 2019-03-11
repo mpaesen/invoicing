@@ -36,7 +36,7 @@ public class TestDummyNumber extends TestCase {
             } catch (Exception e) {
                 //System.err.print(number);
                 BaseLogger.getLogger().logMsg(String.valueOf(number));
-                //e.printStackTrace();
+
             }
         }
         assertTrue(facade.createObject(callableStatement.toString(), args,

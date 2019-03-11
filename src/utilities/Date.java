@@ -350,7 +350,7 @@ public class Date implements Comparable<Date> {
                 verschil += test.aantalDagen();
             }
         } catch (DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         verschil += this.dagVanHetJaar() - date.dagVanHetJaar();
         return verschil;

@@ -91,13 +91,13 @@ public abstract class DocumentOutput {
 
         } catch (final BadElementException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         } catch (final MalformedURLException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         } catch (final IOException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
-            //e.printStackTrace();
+
         }
 
         // row 1

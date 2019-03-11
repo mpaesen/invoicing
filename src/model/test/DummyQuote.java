@@ -5,6 +5,7 @@ package model.test;
 
 import model.Quote;
 import persistency.controller.NumberController;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -50,7 +51,7 @@ public class DummyQuote extends Dummy {
                     "Dit is commentaar", true // Active | tinyint(1)
             );
         } catch (final DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         return quote;
     }

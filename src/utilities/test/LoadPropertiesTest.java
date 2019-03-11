@@ -1,5 +1,6 @@
 package utilities.test;
 
+import persistency.logging.BaseLogger;
 import utilities.LoadProperties;
 
 public class LoadPropertiesTest {
@@ -18,7 +19,7 @@ public class LoadPropertiesTest {
                         .println("Usage: java LoadPropertiesTest file.properties");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
     }
 

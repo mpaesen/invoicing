@@ -2,6 +2,7 @@ package model.test;
 
 import model.Price;
 import persistency.controller.NumberController;
+import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
 
@@ -32,7 +33,7 @@ public class DummyPrice extends Dummy {
 
             );
         } catch (final DatumException e) {
-            e.printStackTrace();
+            BaseLogger.logMsg(e.getMessage());
         }
         return price;
 
