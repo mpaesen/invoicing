@@ -48,10 +48,15 @@ public class BaseLogger {
      */
     public static LogLevel getRegisteredLevel() {
         String baseLogLevelLabel;
+        StringBuilder strManyDirectories = new StringBuilder();
+        strManyDirectories.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
+        strManyDirectories.append(Constants.USER_DOCUMENTS);
+        strManyDirectories.append(Constants.RESOURCES_PATH);
+        strManyDirectories.append(Constants.SETTINGS_PATH);
+        strManyDirectories.append(Constants.LOGGER_FILE);
         if (baseLogLevel == null) {
             try {
-                properties = new LoadProperties(new File(Constants.SETTINGS_PATH
-                        + Constants.LOGGER_FILE));
+                properties = new LoadProperties(new File(strManyDirectories.toString()));
                 baseLogLevelLabel = properties.getProperty(Constants.LOG_LEVEL);
                 switch (baseLogLevelLabel) {
                     case "ERROR":
@@ -104,7 +109,9 @@ public class BaseLogger {
      */
     private static String getFileName(@NotNull GregorianCalendar gc) {
         StringBuilder logPath = new StringBuilder();
-        logPath.append(System.getProperty(Constants.DOCUMENT_ROOT));
+        logPath.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
+        logPath.append(Constants.USER_DOCUMENTS);
+        //logPath.append(Constants.LOGGING_DETAIL_PATH);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd");
         String dateString = dateFormat.format(gc.getTime());

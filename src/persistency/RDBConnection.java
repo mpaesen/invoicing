@@ -13,8 +13,14 @@ public class RDBConnection extends DBConnection {
 
     public RDBConnection() {
         super();
+        StringBuilder strManyDirectories = new StringBuilder();
+        strManyDirectories.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
+        strManyDirectories.append(Constants.USER_DOCUMENTS);
+        strManyDirectories.append(Constants.RESOURCES_PATH);
+        strManyDirectories.append(Constants.SETTINGS_PATH);
+        strManyDirectories.append(Constants.SETTINGS_FILE);
         try {
-            props = new LoadProperties(new File(Constants.SETTINGS_PATH + Constants.SETTINGS_FILE));
+            props = new LoadProperties(new File(strManyDirectories.toString()));
         } catch (final IOException e) {
             BaseLogger.getLogger().logMsg(e.getMessage());
         }

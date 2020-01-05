@@ -8,7 +8,6 @@ public class TestReadNumber {
      * @param args
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         System.out.printf("\nCustomer: %s",
                 NumberController.readLastNumber("Cus", 0).toString());
         System.out.printf("\nContact: %s",

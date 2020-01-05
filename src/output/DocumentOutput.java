@@ -76,14 +76,18 @@ public abstract class DocumentOutput {
      */
     public PdfPTable createHeader(final String TITLE, final String docId) {
         head = getOwnCompany();
-
+        StringBuilder logoPath = new StringBuilder();
+        logoPath.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
+        logoPath.append(Constants.USER_DOCUMENTS);
+        logoPath.append(Constants.RESOURCES_PATH);
+        logoPath.append(Constants.IMG_RESOURCE);
         // a table with three columns
         final PdfPTable table = new PdfPTable(10);
         // the cell object
         PdfPCell cell;
         // now we add a cell with rowspan 4 for the logo
         try {
-            cell = new PdfPCell(Image.getInstance(String.format(Constants.IMG_RESOURCE, Constants.LOGO)));
+            cell = new PdfPCell(Image.getInstance(String.format(logoPath.toString(), Constants.LOGO)));
             cell.setRowspan(4);
             cell.setColspan(2);// span 2 cell
             cell.setBorder(Rectangle.NO_BORDER);

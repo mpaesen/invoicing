@@ -5,8 +5,7 @@ package utilities;
  *
  */
 public interface Constants {
-    //Logger logger = BaseLogger.getLogger(Constants.class);
-    String LOG_LEVEL = "**BaseLogger.registeredLevel**";
+
     String SEPARATOR_SLASH = "/";
     String QUOTES_EXIST = " werd reeds verkocht, kan niet verwijderd worden!";
     String INVOICES_EXIST = " heeft reeds facturen, kan niet verwijderd worden!";
@@ -41,7 +40,7 @@ public interface Constants {
     String DUE_DATE_FUTURE = "Vervaldatum moet later dan factuurdatum zijn!";
     String NO_INV_DATE = "Selecteer een factuurdatum!";
     String NO_DUE_DATE = "Selecteer een vervaldatum!";
-    String NO_INVOICE_HEADER = "Factuur bestaat nog niet! Klik \'OK\'";
+    String NO_INVOICE_HEADER = "Factuur bestaat nog niet! Klik 'OK'";
     String INVOICE_UPDATE_NOT_ALLOWED = "Factuur kan niet meer gewijzigd worden!";
     String INVOICE_UPDATE_IMPOSSIBLE = "Update functie niet beschikbaar!";
     String INVOICE_DELETE_NOT_ALLOWED = "Factuur kan niet meer verwijderd worden!";
@@ -74,13 +73,6 @@ public interface Constants {
     String VAT = "Vat";
     String PAYMENT_CONDITIONS = "Pay";
     String COMMENTS = "Credit nota voor Factuur: ";
-    String DOCUMENT_ROOT = "user.home";
-    String DOCUMENT_PATH = "documentPath";
-    String SETTINGS_PATH = "resources/config/";
-    String LOGGING_DETAIL_PATH = "/log/";
-    String LOGGER_FILE = "BaseLogger.properties";
-    String SETTINGS_FILE = "settings.properties";
-    String IMG_RESOURCE = "resources/img/%s.bmp";
     String EXTENTION = ".pdf";
     String LOGO = "Logo";
     String EURO = "\u20AC";
@@ -115,10 +107,23 @@ public interface Constants {
     String INVOICE_DETAIL_LINES = "Factuur detaillijnen";
     String STATUS = "Status :";
     String CREDIT_NOTE = "Credit Nota";
-    String INVOICE_DETAIL_PATH = "/facturen/";
     String INVOICE_TYPE = "I";
     String CREDITNOTE_TYPE = "C";
+    String RESOURCES_PATH = "/resources/";
+    String IMG_RESOURCE = "img/%s.bmp";
+    String SETTINGS_PATH = "config/";
+    String SETTINGS_FILE = "settings.properties";
+
+    String USER_DOCUMENTS = "/Documents";
+    String DOCUMENT_ROOT = "user.home";
+    String DOCUMENT_PATH = "documentPath";
+    String INVOICE_DETAIL_PATH = "/facturen/";
     String QUOTE_DETAIL_PATH = "/offertes/";
+
+    //Logger logger = BaseLogger.getLogger(Constants.class);
+    String LOG_LEVEL = "**BaseLogger.registeredLevel**";
+    String LOGGING_DETAIL_PATH = "/log/";
+    String LOGGER_FILE = "BaseLogger.properties";
     String VOORLOPIG = "VH";
     String UNIT = "EH ";
     String URL = "url";
