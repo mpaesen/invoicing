@@ -7,8 +7,8 @@ public enum BusinessTypeEnum {
             "Number", 9), CODE("Code", 10), CODE_DETAIL("Code Detail", 11), QUOTE_VIEW(
             "Quotes by customer", 12), INVOICE_VIEW("Quotes by customer", 13), AMOUNT("Amount", 14);
 
-    private String type;
-    private int seq;
+    private final String type;
+    private final int seq;
 
     BusinessTypeEnum(String type, int seq) {
         this.seq = seq;

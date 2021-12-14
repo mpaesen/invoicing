@@ -2,7 +2,7 @@ package utilities;
 
 /**
  * Enumeration class LesDagEnum - write a description of the enum class here
- * 
+ *
  * @author (your name here)
  * @version (version number or date here)
  */
@@ -11,8 +11,8 @@ public enum NumberEnum {
             "Crn", 4), PRODUCT("Prd", 5), PRICE("Prc", 6), QUOTE("Qte", 7), NUMBER(
             "Nbr", 8);
 
-    private String type;
-    private int code;
+    private final String type;
+    private final int code;
 
     NumberEnum(String type, int code) {
         this.type = type;

@@ -1,7 +1,7 @@
 package utilities;
 
 public class DatumException extends Exception {
-    private String text;
+    private final String text;
 
     public DatumException(String str) {
         text = str;

@@ -56,8 +56,8 @@ public class JDialogAddress extends JDialog {
     private JPanel jPanelTitleFrame;
     private JButton jButtonSave;
     private Address address;
-    private Customer customer;
-    private CRUDOperationEnum operation;
+    private final Customer customer;
+    private final CRUDOperationEnum operation;
     private TreeMap<String, String> addTypes, addCountries;
 
     {

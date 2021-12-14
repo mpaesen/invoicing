@@ -1,8 +1,7 @@
 package persistency.logging;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.lf5.LogLevel;
-import org.jetbrains.annotations.NotNull;
 import utilities.Constants;
 import utilities.CreateDirectory;
 import utilities.LoadProperties;
@@ -14,13 +13,13 @@ import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
-import static org.apache.log4j.lf5.LogLevel.*;
+import static org.apache.log4j.Level.*;
 
 
 public class BaseLogger {
     private static BaseLogger logger;
     private static Logger jLogger;
-    private static LogLevel baseLogLevel;
+    private static Level baseLogLevel;
     private static LoadProperties properties;
 
     private BaseLogger() {
@@ -46,7 +45,7 @@ public class BaseLogger {
      *
      * @RETURN level, int
      */
-    public static LogLevel getRegisteredLevel() {
+    public static Level getRegisteredLevel() {
         String baseLogLevelLabel;
         StringBuilder strManyDirectories = new StringBuilder();
         strManyDirectories.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
@@ -63,7 +62,7 @@ public class BaseLogger {
                         baseLogLevel = ERROR;
                         break;
                     case "WARN":
-                        baseLogLevel = WARNING;
+                        baseLogLevel = WARN;
                         break;
                     case "INFO":
                         baseLogLevel = INFO;
@@ -71,24 +70,24 @@ public class BaseLogger {
                     case "DEBUG":
                         baseLogLevel = DEBUG;
                         break;
-                    case "SEVERE":
-                        baseLogLevel = SEVERE;
-                        break;
+                    //                   case "SEVERE":
+                    //                     baseLogLevel = SEVERE;
+                    //                   break;
                     case "WARNING":
-                        baseLogLevel = WARNING;
+                        baseLogLevel = WARN;
                         break;
-                    case "CONFIG":
-                        baseLogLevel = CONFIG;
-                        break;
-                    case "FINE":
-                        baseLogLevel = FINE;
-                        break;
-                    case "FINER":
-                        baseLogLevel = FINER;
-                        break;
-                    case "FINEST":
-                        baseLogLevel = FINEST;
-                        break;
+//                    case "CONFIG":
+                    //                       baseLogLevel = CONFIG;
+                    //                      break;
+//                    case "FINE":
+                    //                       baseLogLevel = FINE;
+//                        break;
+                    //                  case "FINER":
+                    //                       baseLogLevel = FINER;
+//                        break;
+                    //                   case "FINEST":
+                    //                       baseLogLevel = FINEST;
+                    //                       break;
                     default:
                         baseLogLevel = FATAL;
                 }
@@ -107,7 +106,7 @@ public class BaseLogger {
      * @param gc GregorianCalender
      * @return String name of file
      */
-    private static String getFileName(@NotNull GregorianCalendar gc) {
+    private static String getFileName(GregorianCalendar gc) {
         StringBuilder logPath = new StringBuilder();
         logPath.append(System.getProperty(Constants.DOCUMENT_ROOT)); // get
         logPath.append(Constants.USER_DOCUMENTS);
@@ -139,9 +138,9 @@ public class BaseLogger {
      *
      * @param message String, LogLevel
      */
-    public static void logMsg(String message, final LogLevel requestedLevel) {
+    public static void logMsg(String message, final Level requestedLevel) {
         String requestedLevelLabel = requestedLevel.toString();
-        if (getRegisteredLevel().encompasses(requestedLevel)) {
+        if (getRegisteredLevel().equals(requestedLevel)) {
             try {
                 GregorianCalendar gc = new GregorianCalendar();
                 String fileName = getFileName(gc);

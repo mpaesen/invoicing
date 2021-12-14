@@ -1,6 +1,8 @@
 package utilities;
 
-import org.apache.log4j.lf5.LogLevel;
+//import org.apache.log4j.lf5.LogLevel;
+
+import org.apache.log4j.Level;
 import persistency.logging.BaseLogger;
 
 import java.util.Calendar;
@@ -9,7 +11,7 @@ import java.util.StringTokenizer;
 
 /**
  * Deze class representeert een datum object en voorziet elementaire testen
- * 
+ *
  * @author Mathy Paesen
  * @date 24 september 2009
  */
@@ -201,7 +203,7 @@ public class Date implements Comparable<Date> {
             System.err.println("[" + jaar + SEPARATOR + maand + SEPARATOR + dag
                     + "]" + e);
             BaseLogger.logMsg("[" + jaar + SEPARATOR + maand + SEPARATOR + dag
-                    + "]" + e, LogLevel.DEBUG);
+                    + "]" + e, Level.DEBUG);
 
 
         }

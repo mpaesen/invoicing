@@ -34,7 +34,7 @@ import java.util.TreeMap;
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
 public class JDialogProduct extends JDialog {
-    private JFrame parent;
+    private final JFrame parent;
     private JDialog dialog;
 
     private JPanel jPanelProductSouth;
@@ -70,7 +70,8 @@ public class JDialogProduct extends JDialog {
     private CRUDOperationEnum operation;
     private Date toDay;
 
-    private TreeMap<String, String> prodCats, prodTypes;
+    private final TreeMap<String, String> prodCats;
+    private final TreeMap<String, String> prodTypes;
     private int row;
 
     {

@@ -8,13 +8,12 @@ import persistency.controller.NumberController;
 
 /**
  * @author Mathy
- *
  */
 public class DummyProduct extends Dummy {
 
-    private static String[] product = {"Conslutancy", "Business Analyse", "Project management", "Ontwikkeling", "Technische Analyse", "Training"};
-    private static String[] category = {"A", "B", "C", "D", "E", "F"};
-    private static String[] type = {"M", "W", "S"};
+    private static final String[] product = {"Consultancy", "Business Analyse", "Project management", "Ontwikkeling", "Technische Analyse", "Training"};
+    private static final String[] category = {"A", "B", "C", "D", "E", "F"};
+    private static final String[] type = {"M", "W", "S"};
 
     /**
      * @return

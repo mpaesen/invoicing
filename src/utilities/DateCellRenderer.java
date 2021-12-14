@@ -7,7 +7,7 @@ import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 public class DateCellRenderer extends JLabel implements TableCellRenderer {
-    private Date toDay;
+    private final Date toDay;
 
     public DateCellRenderer(Date toDay) {
         super();

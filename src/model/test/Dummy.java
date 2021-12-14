@@ -20,7 +20,7 @@ public class Dummy {
     public static final int MAX_QUOTE_LINE = 8;
     public static final int MAX_INVOICE = 5;
     public static final int MAX_INVOICE_LINE = 8;
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static Random getRandom() {
         return random;

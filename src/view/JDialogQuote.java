@@ -39,7 +39,7 @@ import static utilities.ComboBoxHelper.getSelectedItem;
  */
 public class JDialogQuote extends JDialog {
     private static int lineCounter;
-    private JFrame parent;
+    private final JFrame parent;
     private JSplitPane jSplitPaneQuoteDetails;
     private JScrollPane jScrollPane1;
     private JInternalFrame jInternalFrameQuoteHeader;
@@ -83,12 +83,13 @@ public class JDialogQuote extends JDialog {
     private JRadioButtonMenuItem jRadioButtonMenuItemUpdateQuoteDetail;
     private Customer customer;
     private Quote quote;
-    private TreeMap<String, String> dlvAddresses, quoteStats;
+    private final TreeMap<String, String> quoteStats;
+    private final CRUDOperationEnum operation;
     private int row;
     private double totalExcl = 0.0;
     private Date toDay;
-    private CRUDOperationEnum operation;
-    private boolean freeFormat;
+    private final boolean freeFormat;
+    private TreeMap<String, String> dlvAddresses;
 
     {
         // Set Look & Feel

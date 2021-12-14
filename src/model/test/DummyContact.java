@@ -5,21 +5,21 @@ import persistency.controller.NumberController;
 
 public class DummyContact extends Dummy {
 
-    private static String[] name = {"Achten", "Leppens", "Brebels", "Paesen",
+    private static final String[] name = {"Achten", "Leppens", "Brebels", "Paesen",
             "Coninckx", "Juncker", "Vandenbussche", "Vandender", "Cortens",
             "Gerits", "Aendekerk", "Stassen", "Vangrootloon", "Jehoul",
             "Casters", "Franckaerts", "Kelchtermans", "Simons", "Ankersmidt",
             "Styven", "Eerdekens", "Vanoosterhout", "Vliegen", "Langens"};
 
-    private static String[] fname = {"Jef", "Lowie", "Jaak", "Rudy", "Erik",
+    private static final String[] fname = {"Jef", "Lowie", "Jaak", "Rudy", "Erik",
             "Fred", "Chris", "Nancy", "Steffi", "Charlotte", "Steven",
             "Ann-Sophie", "Rudolf", "Patrick", "Francois", "Gert", "Dirk",
             "Luc", "Niko", "Peggy"};
 
-    private static String[] language = {"Nl", "Fr", "De", "En"};
-    private static String[] title = {"Dr.", "Baron", "Prof.", "Ing",
+    private static final String[] language = {"Nl", "Fr", "De", "En"};
+    private static final String[] title = {"Dr.", "Baron", "Prof.", "Ing",
             "Ir", "Lic"};
-    private static String[] prefix = {"Mr.", "Mw.", "Juf.", "Jhr."};
+    private static final String[] prefix = {"Mr.", "Mw.", "Juf.", "Jhr."};
 
     public static Contact createContact(String idCus) {
         String lName = name[getRandom().nextInt(name.length)];

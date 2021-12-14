@@ -2,7 +2,9 @@
 
 package persistency;
 
-import org.apache.log4j.lf5.LogLevel;
+//import org.apache.log4j.lf5.LogLevel;
+
+import org.apache.log4j.Level;
 import persistency.logging.BaseLogger;
 
 import java.sql.*;
@@ -75,7 +77,7 @@ public class TableMetaDataProps {
 
         while (rs.next()) {
             System.out.print(recordDetails());
-            BaseLogger.logMsg(recordDetails(), LogLevel.DEBUG);
+            BaseLogger.logMsg(recordDetails(), Level.DEBUG);
 
         }
 

@@ -5,13 +5,13 @@ import persistency.controller.NumberController;
 
 public class DummyAddress extends Dummy {
 
-    private static String[] street = {"Riekskensweg", "Dorpstraat", "Hoogstraat", "Achter\'t heukske", "Tessenstraat", "Bondgenotenlaan", "Diestsestraat", "Meeuwenlaan", "Weg op bocholt", "Brusselsesteenweg", "Mechelsesteenweg", "Gemeentestraat", "Weg op bree", "Weg naar genk", "Peerderstraat",
+    private static final String[] street = {"Riekskensweg", "Dorpstraat", "Hoogstraat", "Achter't heukske", "Tessenstraat", "Bondgenotenlaan", "Diestsestraat", "Meeuwenlaan", "Weg op bocholt", "Brusselsesteenweg", "Mechelsesteenweg", "Gemeentestraat", "Weg op bree", "Weg naar genk", "Peerderstraat",
             "Diestesteenweg"};
 
-    private static String[] city = {"Bree", "Meeuwen", "Brussel", "Leuven", "Antwerpen", "Genk", "Hasselt", "Gent"};
-    private static String[] zip = {"3960", "3670", "1000", "3000", "2000", "3600", "3500", "9000"};
+    private static final String[] city = {"Bree", "Meeuwen", "Brussel", "Leuven", "Antwerpen", "Genk", "Hasselt", "Gent"};
+    private static final String[] zip = {"3960", "3670", "1000", "3000", "2000", "3600", "3500", "9000"};
 
-    private static String[] type = {"I", "D"};
+    private static final String[] type = {"I", "D"};
 
     public static Address createAddress(final String addRef) {
         final int i = getRandom().nextInt(city.length);

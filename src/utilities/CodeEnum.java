@@ -14,8 +14,8 @@ public enum CodeEnum {
             "Ums", 12), ZIPCODE("Zip", 13), LANGUAGE("Lng", 14), COUNTRY("Cnt",
             15), NUMBER("Nbr", 16), PAYMENT("Pay", 17);
 
-    private String type;
-    private int code;
+    private final String type;
+    private final int code;
 
     CodeEnum(String type, int code) {
         this.type = type;

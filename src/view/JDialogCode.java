@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
 public class JDialogCode extends JDialog {
-    private JFrame parent;
+    private final JFrame parent;
 
     private JPanel jPanelCodeSouth;
     private JPanel jPanelCodeNorth;
@@ -175,7 +175,6 @@ public class JDialogCode extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private CodeDetail updateExistingCode() {
@@ -188,7 +187,6 @@ public class JDialogCode extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private CodeDetail createNewCode() {

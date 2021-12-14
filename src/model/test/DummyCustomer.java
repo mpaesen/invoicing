@@ -10,7 +10,7 @@ public class DummyCustomer extends Dummy {
     public static String[] language = {"Nl", "Fr", "De", "En", "It"};
     public static String[] currency = {"Eur", "Gbp", "Chf", "Usd"};
     public static String[] payment = {"30", "60", "90"};
-    private static String[] name = {"Axor", "Hulsbosch", "ACD", "G.Heyninkx",
+    private static final String[] name = {"Axor", "Hulsbosch", "ACD", "G.Heyninkx",
             "Dethier", "Breka", "Reko", "Cladding", "M.E. Construct",
             "Siersteenfabriek", "Aendekerk", "Stassen", "Intermetal",
             "Eddy Jehoul", "Casters", "Franckaerts", "Gerrits", "Edibo",

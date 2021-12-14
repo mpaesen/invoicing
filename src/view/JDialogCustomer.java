@@ -8,7 +8,7 @@ import model.Address;
 import model.Business;
 import model.Contact;
 import model.Customer;
-import org.apache.log4j.lf5.LogLevel;
+import org.apache.log4j.Level;
 import persistency.controller.*;
 import persistency.logging.BaseLogger;
 import utilities.CRUDOperationEnum;
@@ -292,7 +292,7 @@ public class JDialogCustomer extends JDialog {
                     errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");
                 }
             } catch (final Exception e) {
-                BaseLogger.logMsg(e.getMessage(), LogLevel.DEBUG);
+                BaseLogger.logMsg(e.getMessage(), Level.DEBUG);
                 errorMessages.append(e.getMessage());
                 errorMessages.append(":\t");
                 errorMessages.append(Constants.VAT_NOT_CORRECT + "\n");

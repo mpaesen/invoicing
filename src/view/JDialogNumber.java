@@ -28,7 +28,7 @@ import java.util.TreeMap;
  * ANY CORPORATE OR COMMERCIAL PURPOSE.
  */
 public class JDialogNumber extends JDialog {
-    private JFrame parent;
+    private final JFrame parent;
 
     private JPanel jPanelNumberSouth;
     private JPanel jPanelNumberNorth;
@@ -176,7 +176,6 @@ public class JDialogNumber extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Number updateExistingNumber() {
@@ -190,7 +189,6 @@ public class JDialogNumber extends JDialog {
     }
 
     /**
-     * @param deliveryDate
      * @return
      */
     private Number createNewNumber() {

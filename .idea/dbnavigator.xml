@@ -23,34 +23,41 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="d4bd7520-c63a-4943-bc47-3b24ef842487">
+        <schema name="person" object-types="view, column, table, procedure, function, index, dataset trigger, constraint" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="d4bd7520-c63a-4943-bc47-3b24ef842487">
-      <console name="Buteo" type="STANDARD" schema="groept" session="Main"><![CDATA[select `cusName`, cusvat, sum(d.`invPrice` * d.`invQty`) as Sum 
+      <console name="Buteo" type="STANDARD" schema="groept" session="Main">select `cusName`, cusvat, sum(d.`invPrice` * d.`invQty`) as Sum 
 from invoicesview v inner join invoicedetail d
 on v.`idInvoice`= d.`idInvoice`
-where v.`idInvoice` > '18999'
+where v.`idInvoice` &gt; '18999'
 group by cusname, cusvat
 union all
-select "", "", sum(d.`invPrice` * d.`invQty`)  as Sum
+select &quot;&quot;, &quot;&quot;, sum(d.`invPrice` * d.`invQty`)  as Sum
 from invoicesview v inner join invoicedetail d
 on v.`idInvoice`= d.`idInvoice`
-where v.`idInvoice` > '18999';]]></console>
-      <console name="ucll" type="STANDARD" schema="groept" session="Main"><![CDATA[select * from customer;
+where v.`idInvoice` &gt; '18999';</console>
+      <console name="ucll" type="STANDARD" schema="groept" session="Main">select * from customer;
 select * from codeheader;
 select * from number;
 select * from address;
-select * from contact;]]></console>
+select * from contact;</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="d4bd7520-c63a-4943-bc47-3b24ef842487" object-ref="schemas/person/tables/person" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="d4bd7520-c63a-4943-bc47-3b24ef842487" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="d4bd7520-c63a-4943-bc47-3b24ef842487" dataset="person.person" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="d4bd7520-c63a-4943-bc47-3b24ef842487" dataset="mbuteo.invoice" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">

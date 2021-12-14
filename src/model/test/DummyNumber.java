@@ -10,7 +10,7 @@ public class DummyNumber extends Dummy {
     // public static int getNewNumber(){
     // return ++number;
     // }
-    private static String[] category = {"Inv", "Qte"};
+    private static final String[] category = {"Inv", "Qte"};
 
     public static Number createNumber() {
         Date current;

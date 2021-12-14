@@ -33,7 +33,7 @@ import java.util.TreeMap;
  */
 public class JDialogPrice extends JDialog {
 
-    private JDialog parent;
+    private final JDialog parent;
     private JPanel jPanelNorth;
     private JLabel jLabelUnitOfMeasure;
     private JDateChooser jDateFrom;
@@ -45,9 +45,9 @@ public class JDialogPrice extends JDialog {
     private JPanel jPanelSouth;
     private Product product;
     private Price price;
-    private CRUDOperationEnum operation;
+    private final CRUDOperationEnum operation;
     private Date toDay;
-    private TreeMap<String, String> priceUnites;
+    private final TreeMap<String, String> priceUnites;
     private JLabel jLabelFrom;
     private JLabel jLabelProductCode;
     private JTextArea jTextAreaMessage;

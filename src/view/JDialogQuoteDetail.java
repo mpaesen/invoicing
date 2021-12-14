@@ -78,8 +78,8 @@ public class JDialogQuoteDetail extends JDialog {
 
     private TreeMap<String, String> qtePrices, qteProducts, qteUnits;
     private QuoteDetail detail, previous;
-    private Quote quote;
-    private CRUDOperationEnum operation;
+    private final Quote quote;
+    private final CRUDOperationEnum operation;
 
     {
         // Set Look & Feel

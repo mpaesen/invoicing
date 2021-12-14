@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class DummyQuoteDetail extends Dummy {
-    private static String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
+    private static final String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
     private static int i;
 
     /**

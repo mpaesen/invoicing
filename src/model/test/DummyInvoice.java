@@ -11,12 +11,11 @@ import utilities.DatumException;
 
 /**
  * @author Mathy
- *
  */
 public class DummyInvoice extends Dummy {
 
-    private static String[] status = {"O", "P", "C"};
-    private static String[] type = {"I", "C"};
+    private static final String[] status = {"O", "P", "C"};
+    private static final String[] type = {"I", "C"};
 
     /**
      * @return

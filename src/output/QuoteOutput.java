@@ -123,7 +123,7 @@ public class QuoteOutput extends DocumentOutput {
 
             lineTotal = detail.getQtePrice().multiply(detail.getQteQty()).setScale(2, BigDecimal.ROUND_HALF_UP);
             setTotalExcl(getTotalExcl() + lineTotal.doubleValue());
-            cell = new PdfPCell(new Phrase(((lineTotal.doubleValue() != Figures.ZERO) ? lineTotal.toString() + Constants.EURO : Constants.BLANK), FONT[18]));
+            cell = new PdfPCell(new Phrase(((lineTotal.doubleValue() != Figures.ZERO) ? lineTotal + Constants.EURO : Constants.BLANK), FONT[18]));
             cell.setColspan(3);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(cell);

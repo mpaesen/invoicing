@@ -34,6 +34,6 @@ public class TestDatum {
         Date test = new Date(new java.util.Date().getTime());
         test.setDatum(10, 0, 2012);
         Date test2 = new Date(test.getTimeInMilliSeconds());
-        BaseLogger.getLogger().logMsg(String.format(test.toString(), test2.toString()));
+        BaseLogger.getLogger().logMsg(String.format(test.toString(), test2));
     }
 }

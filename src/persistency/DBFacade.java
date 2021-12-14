@@ -2,6 +2,7 @@ package persistency;
 
 import model.Number;
 import model.*;
+import org.apache.log4j.Level;
 import persistency.logging.BaseLogger;
 import utilities.Date;
 import utilities.DatumException;
@@ -11,8 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import static org.apache.log4j.lf5.LogLevel.CONFIG;
 
 public class DBFacade {
     private static DBConnection connection;
@@ -270,7 +269,7 @@ public class DBFacade {
             }
 
         }
-        BaseLogger.logMsg(object.toString(), CONFIG);
+        BaseLogger.logMsg(object.toString(), Level.TRACE);
         return object;
     }
 

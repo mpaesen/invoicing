@@ -39,8 +39,8 @@ public class JWindowCustomer extends JDialog {
     private JTextField jTextFieldCustomerName;
     private JLabel jLabelCustomerName;
 
-    private JFrame parent;
-    private BusinessTypeEnum type;
+    private final JFrame parent;
+    private final BusinessTypeEnum type;
 
     public JWindowCustomer(JFrame parent, BusinessTypeEnum type) {
         super(parent, true);

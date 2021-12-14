@@ -85,8 +85,8 @@ public class JDialogInvoiceDetail extends JDialog {
 
     private TreeMap<String, String> invPrices, invProducts, invVat, invUnits;
     private InvoiceDetail detail, previous;
-    private Invoice invoice;
-    private CRUDOperationEnum operation;
+    private final Invoice invoice;
+    private final CRUDOperationEnum operation;
 
     {
         // Set Look & Feel

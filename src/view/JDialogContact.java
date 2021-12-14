@@ -58,8 +58,8 @@ public class JDialogContact extends JDialog {
     private JLabel jLabelCustomer;
     private JPanel jPanelTitleFrame;
     private Contact contact;
-    private Customer customer;
-    private CRUDOperationEnum operation;
+    private final Customer customer;
+    private final CRUDOperationEnum operation;
     private TreeMap<String, String> conTitles, conPrefixes, conLanguages;
 
     {

@@ -9,7 +9,7 @@ import utilities.DatumException;
 import java.math.BigDecimal;
 
 public class DummyPrice extends Dummy {
-    private static String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
+    private static final String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
 
     /**
      * @param prodID

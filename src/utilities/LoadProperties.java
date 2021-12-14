@@ -9,12 +9,14 @@ package utilities;
 
 /**
  * @author bempn
- * 
+ * <p>
  * To change the template for this generated type comment go to
  * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
  */
 
-import org.apache.log4j.lf5.LogLevel;
+//import org.apache.log4j.lf5.LogLevel;
+
+import org.apache.log4j.Level;
 import persistency.logging.BaseLogger;
 
 import java.io.*;
@@ -38,7 +40,7 @@ public class LoadProperties {
                 sp = new LoadProperties(f);
             } else {
                 System.err.println("File " + f + " does not exist!");
-                BaseLogger.logMsg("File " + f + " does not exist!", LogLevel.DEBUG);
+                BaseLogger.logMsg("File " + f + " does not exist!", Level.DEBUG);
             }
 
         } catch (Exception e) {

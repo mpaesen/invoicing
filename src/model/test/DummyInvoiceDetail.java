@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class DummyInvoiceDetail extends Dummy {
-    private static String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
-    private static String[] vat = {"0.0", "6.0", "12.0", "21.0"};
+    private static final String[] uMeasure = {"wk", "u", "stk", "md", "dg"};
+    private static final String[] vat = {"0.0", "6.0", "21.0"};
     private static int i;
 
     /**
