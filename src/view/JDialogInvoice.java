@@ -126,7 +126,12 @@ public class JDialogInvoice extends JDialog {
                           CRUDOperationEnum operation) {
         this(frame, true, operation);
         this.customer = customer;
-        initGUI();
+        try {
+            initGUI();
+        } catch (Exception e) {
+            BaseLogger.getLogger().logMsg(e.getMessage());
+
+        }
     }
 
     private JDialogInvoice(JFrame frame, boolean modal,
@@ -918,10 +923,14 @@ public class JDialogInvoice extends JDialog {
     synchronized private void saveInput() {
 
         if ((invoice == null) && (operation == CRUDOperationEnum.NEW)) {
-            Invoice newInvoice = createNewInvoice();
-            InvoiceController.createInvoice(newInvoice);
-            invoice = new Invoice(newInvoice);
-            greenMessage(newInvoice.getIdInvoice() + Constants.ADDED);
+            try {
+                Invoice newInvoice = createNewInvoice();
+                InvoiceController.createInvoice(newInvoice);
+                invoice = new Invoice(newInvoice);
+                greenMessage(newInvoice.getIdInvoice() + Constants.ADDED);
+            } catch (Exception e) {
+                BaseLogger.logMsg("Invoice nummer kan niet gecrëerd worden");
+            }
         }
         if (operation == CRUDOperationEnum.UPDATE) {
             String status = invoiceStats.get(jTextFieldInvoiceStatus.getText());
@@ -990,7 +999,7 @@ public class JDialogInvoice extends JDialog {
     /**
      * @return
      */
-    private Invoice createNewInvoice() {
+    private Invoice createNewInvoice() throws Exception {
         String addressId = dlvAddresses.get(jComboBoxAddressSelection
                 .getSelectedItem().toString());
         Address address = null;

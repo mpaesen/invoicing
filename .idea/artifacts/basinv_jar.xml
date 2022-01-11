@@ -18,7 +18,6 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar" path-in-jar="/" />
       <element id="library" level="project" name="checkVAT" />
-      <element id="library" level="project" name="log4j-1.2.17" />
       <element id="library" level="project" name="mysql-connector-java-5.1.16-bin" />
     </root>
   </artifact>

@@ -70,24 +70,11 @@ public class BaseLogger {
                     case "DEBUG":
                         baseLogLevel = DEBUG;
                         break;
-                    //                   case "SEVERE":
-                    //                     baseLogLevel = SEVERE;
-                    //                   break;
+
                     case "WARNING":
                         baseLogLevel = WARN;
                         break;
-//                    case "CONFIG":
-                    //                       baseLogLevel = CONFIG;
-                    //                      break;
-//                    case "FINE":
-                    //                       baseLogLevel = FINE;
-//                        break;
-                    //                  case "FINER":
-                    //                       baseLogLevel = FINER;
-//                        break;
-                    //                   case "FINEST":
-                    //                       baseLogLevel = FINEST;
-                    //                       break;
+
                     default:
                         baseLogLevel = FATAL;
                 }
