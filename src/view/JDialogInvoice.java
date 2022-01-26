@@ -930,6 +930,7 @@ public class JDialogInvoice extends JDialog {
                 greenMessage(newInvoice.getIdInvoice() + Constants.ADDED);
             } catch (Exception e) {
                 BaseLogger.logMsg("Invoice nummer kan niet gecrëerd worden");
+                redMessage(new StringBuilder("Invoice nummer kan niet gecrëerd worden"));
             }
         }
         if (operation == CRUDOperationEnum.UPDATE) {
